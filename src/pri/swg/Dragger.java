@@ -112,7 +112,7 @@ public class Dragger{
 	/**
 	 * 指定范围的单向拖曳
 	 */
-	public static void drag_VOH(Component c,Component listen,int type,int a,int b){
+	public static void drag_1_dir(Component c,Component listen,int type,int a,int b){
 		new Dragger(c,listen,type,a,b);
 	}
 	/**
@@ -125,7 +125,7 @@ public class Dragger{
 	/**
 	 * 监听组件listen拖曳c，可选择方向
 	 */
-	public static void drag_VOH(Component c,Component listen,int type){
+	public static void drag_1_dir(Component c,Component listen,int type){
 		new Dragger(c,listen,type);
 	}
 	/**

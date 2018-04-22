@@ -308,53 +308,51 @@ public class Slider {
 	 * @param finish ÖÕµã
 	 */
 	private void doSlide(final Point start,final Point finish){
-		Thread t=new Thread(new Runnable() {
+		new Thread(()-> { 
 			int time=times;
 			int xDir=start.x<=finish.x?1:-1;
 			int yDir=start.y<=finish.y?1:-1;
 			float[]present={start.x,start.y};
-			public void run() {
-				on=true;
-				boolean xFinish=false,yFinish=false;
-				while(on&&time==times){
-					try {
-						Thread.sleep(intervals);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-					if(xFinish&&yFinish){
-						
-						on=false;
-						c.setLocation(finish);
-					}
-					else{
-						c.setLocation((int)present[0],(int)present[1]);
-						if(!xFinish){
-							float distence=Math.abs(finish.x-present[0]);
-							if(distence>=breakX)
-								present[0]+=xSpeed*xDir;
-							else
-								present[0]+=present(distence,true)*xDir;
-							xFinish=xDir==1?present[0]>=finish.x:present[0]<=finish.x;
-						}
-						if(!yFinish){
-							present[1]+=ySpeed*yDir;
-							float distence=Math.abs(finish.y-present[1]);
-							if(distence>=breakY)
-								present[1]+=ySpeed*yDir;
-							else
-								present[1]+=present(distence,false)*yDir;
-							yFinish=yDir==1?present[1]>=finish.y:present[1]<=finish.y;
-						}
-					}
+			
+			on=true;
+			boolean xFinish=false,yFinish=false;
+			while(on&&time==times){
+				try {
+					Thread.sleep(intervals);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
-				if(needBack){
-					goBack();
-					needBack=false;
+				if(xFinish&&yFinish){
+					
+					on=false;
+					c.setLocation(finish);
+				}
+				else{
+					c.setLocation((int)present[0],(int)present[1]);
+					if(!xFinish){
+						float distence=Math.abs(finish.x-present[0]);
+						if(distence>=breakX)
+							present[0]+=xSpeed*xDir;
+						else
+							present[0]+=present(distence,true)*xDir;
+						xFinish=xDir==1?present[0]>=finish.x:present[0]<=finish.x;
+					}
+					if(!yFinish){
+						present[1]+=ySpeed*yDir;
+						float distence=Math.abs(finish.y-present[1]);
+						if(distence>=breakY)
+							present[1]+=ySpeed*yDir;
+						else
+							present[1]+=present(distence,false)*yDir;
+						yFinish=yDir==1?present[1]>=finish.y:present[1]<=finish.y;
+					}
 				}
 			}
-		});
-		t.start();
+			if(needBack){
+				goBack();
+				needBack=false;
+			}
+		}).start();
 	};
 	//Ä©¶Ë¼õËÙ
 	private float present(float distence,boolean isX){

@@ -62,35 +62,33 @@ public class FadeFrame extends JFrame{
 		fade(false);
 	}
 	private void fade(boolean isIn){
-		Thread t=new Thread(new Runnable() {
-			public void run() {
-				times++;
-				while(times<turns);
-				float a=isIn?add:-add;
-				int time=times;
-				goOn=true;
-				float opacity=thisone.getOpacity();
-				while(goOn&&time==times){
-					try {
-						Thread.sleep(intervals);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-					opacity+=a;
-					if(isIn?opacity>=to:opacity<=from){
-						if(isIn)
-							opacity=to;
-						else
-							opacity=from;
-						goOn=false;
-					}
-					setOpacity(opacity);
+		new Thread(()->{
+			times++;
+			while(times<turns);
+			float a=isIn?add:-add;
+			int time=times;
+			goOn=true;
+			float opacity=thisone.getOpacity();
+			while(goOn&&time==times){
+				try {
+					Thread.sleep(intervals);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
-				turns++;
-				if(time==times&&!isIn&&close_after_out)//退出关闭
-					thisone.setVisible(false);
+				opacity+=a;
+				if(isIn?opacity>=to:opacity<=from){
+					if(isIn)
+						opacity=to;
+					else
+						opacity=from;
+					goOn=false;
+				}
+				setOpacity(opacity);
 			}
-		});t.start();
+			turns++;
+			if(time==times&&!isIn&&close_after_out)//退出关闭
+				thisone.setVisible(false);
+		}).start();
 	}
 	/**
 	 * 

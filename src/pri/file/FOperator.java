@@ -186,7 +186,7 @@ public class FOperator {
 	    }
 	}
 	/**
-	 * 读取普通GBK编码文件
+	 * 读取GB编码文件
 	 */
 	public static String readGB(File file,int length){
 		String record="";
@@ -227,6 +227,7 @@ public class FOperator {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+        //UTF8 文件 开头可能有特殊字符
 		return result.charAt(0)==65279?result.substring(1):result;
 	}
 }

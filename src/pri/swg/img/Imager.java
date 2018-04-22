@@ -181,31 +181,28 @@ public class Imager extends JPanel{
 	private void imageStart(){
 		on=true;
 		int preLine=line;
-		Thread t=new Thread(new Runnable() {
-			public void run() {
-				float times=time/intervals;
-				float add;
-				if(going)
-					add=radians/times;
-				else
-					add=-radians/times;
-				while((on||notStop)&&preLine==line){
-					 try {
-						Thread.sleep(intervals);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-					 added+=add;
-					 if(judge()&&!notStop){
-						 added=radians;
-						 on=false;
-					 }
-					 repaint();
+		new Thread(()-> {
+			float times=time/intervals;
+			float add;
+			if(going)
+				add=radians/times;
+			else
+				add=-radians/times;
+			while((on||notStop)&&preLine==line){
+				 try {
+					Thread.sleep(intervals);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
-				on=false;
+				 added+=add;
+				 if(judge()&&!notStop){
+					 added=radians;
+					 on=false;
+				 }
+				 repaint();
 			}
-		});
-		t.start();
+			on=false;
+		}).start();
 	}
 	//≈–∂œ «∑ÒΩ· ¯
 	private boolean judge(){

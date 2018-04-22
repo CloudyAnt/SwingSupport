@@ -171,10 +171,9 @@ public class Fader {
 	 */
 	private void doSlide(final float add[],int line){
 		on=true;
-		Thread t=new Thread(new Runnable() {
-			//是否继续增加。每个颜色属性到达目标后对应的解锁。
-			Boolean locked[]={new Boolean(true),new Boolean(true),new Boolean(true),new Boolean(true)};
-			public void run() {
+		new Thread(()-> {
+				//是否继续增加。每个颜色属性到达目标后对应的解锁。
+				Boolean locked[]={new Boolean(true),new Boolean(true),new Boolean(true),new Boolean(true)};
 				while(on&&line==lines){
 					try {
 						Thread.sleep(intervals);
@@ -214,9 +213,8 @@ public class Fader {
 						needBack=false;
 					}
 				}
-			}
-		});
-		t.start();
+			
+		}).start();
 	}
 	/**
 	 * 设置颜色。

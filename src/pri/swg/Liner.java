@@ -14,7 +14,7 @@ import javax.swing.JPanel;
  * @author ²ñÏþ
  *
  */
-public class LineAZer extends JPanel{
+public class Liner extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private int height;
     private int width;
@@ -26,7 +26,7 @@ public class LineAZer extends JPanel{
     public static final int Vertical=1,Horizontal=2,Left=3,Right=4,None=5;
     private boolean horizontal;
     private int alignment=None;
-	public LineAZer(int width,int height,int direction){
+	public Liner(int width,int height,int direction){
 		this.height=height;
 		this.width=width;
 		this.horizontal=direction==Horizontal;
