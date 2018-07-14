@@ -1,0 +1,400 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch)-UniversalDetector<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.mozilla.universalchardet.UniversalDetector",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Hex<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "pri.math.Hex",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Transparent<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "pri.swg.Transparent",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Sys<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "pri.util.Sys",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-AutoCreate<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "sql.AutoCreate",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Test<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "t_file.Test",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-DesktopPanel<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "t_swg.DesktopPanel",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Ex_Test<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "t_swg.Ex_Test",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-OtherTest<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "t_swg.OtherTest",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Static_Image_Test<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "t_swg.Static_Image_Test",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Test_FadeFrame<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "t_swg.Test_FadeFrame",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Test_SuiteA<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "t_swg.Test_SuiteA",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Test_SuiteB<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "t_swg.Test_SuiteB",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CLSIDs<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.com.typebrowser.business.CLSIDs",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MainFrame<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.com.typebrowser.gui.MainFrame",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MainPanel<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.com.typebrowser.gui.MainPanel",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ActiveXListPanel<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.com.typebrowser.gui.panels.ActiveXListPanel",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ProjectPropertiesPanel<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.com.typebrowser.gui.panels.ProjectPropertiesPanel",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Advapi32<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.util.Advapi32",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ComDlg32<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.util.ComDlg32",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Iphlpapi<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.util.Iphlpapi",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Kernel32<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.util.Kernel32",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Macros<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.util.Macros",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SimpleMAPI<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.util.mapi.SimpleMAPI",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Win32SessionManager<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.jnative.util.win32session.Win32SessionManager",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-JNativeTester<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.test.JNativeTester",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-KillProcess<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.test.KillProcess",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SNDPTester<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.test.SNDPTester",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-_1456493_npe<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.test.bug._1456493_npe",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-_1461912_mem_leak<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.test.bug._1461912_mem_leak",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-_1698452_mem_leak<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.test.bug._1698452_mem_leak",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-_1715554_ncdfe<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.test.bug._1715554_ncdfe",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestCallback<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.test.callbacks.TestCallback",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-IE<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.test.com.IE",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-DeviceNotificationTester<Support>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "org.xvolks.test.windows.DeviceNotificationTester",
+            "projectName": "Support",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Debug (Attach)",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 0
+        }
+    ]
+}
