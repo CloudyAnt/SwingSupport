@@ -17,7 +17,7 @@ import pri.swg.Slider;
  */
 public class Test_SuiteA extends FadeFrame{
 	private static final long serialVersionUID = 1L;
-	Test_SuiteA(){
+	private Test_SuiteA(){
 		setBounds(300, 300, 300, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridLayout(1, 1));

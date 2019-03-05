@@ -39,7 +39,7 @@ public class FOperator {
 	}
 	/**
 	 * 获取URL指定的文件
-	 * @param u URL
+	 * @param source URL
 	 * @return 文件
 	 */
 	public static File getResoureFile(Class<?> cla,String source){
@@ -168,7 +168,6 @@ public class FOperator {
 	 * 从文件中读取数据
 	 * @param file	读取的文件
 	 * @param length 读取长度
-	 * @param os 操作系统
 	 * @return	读取的文字
 	 */
 	public static String read(File file,int length){

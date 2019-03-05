@@ -35,7 +35,7 @@ public class Test_SuiteB extends JFrame{
 //		painter.setNotStop(true);
 		painter.setBackground(new Color(255,155,0));
 		Fader.fade(painter,Fader.BACK_GROUND, 1000, Fader.LISTEN_MouseEnter, Color.RED);
-		Dragger.drag_1_dir(this, painter,Dragger.Vertical,100,500);
+		Dragger.oneDirectionDrag(this, painter,Dragger.Vertical,100,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}

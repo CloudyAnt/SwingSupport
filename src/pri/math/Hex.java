@@ -38,7 +38,7 @@ public class Hex {
 	 */
 	public static String getInt_InPointHex(BigInteger bi,Integer hex){
 		String show="",x="";
-		if(bi.compareTo(zero)==-1)
+		if(bi.compareTo(zero) < 0)
 			x="-1";
 		BigInteger hex_bi=new BigInteger(hex.toString());
 		if(!bi.equals(zero))
