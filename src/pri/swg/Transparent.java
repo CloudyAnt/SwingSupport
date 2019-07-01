@@ -13,6 +13,12 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+/**
+ * 
+ * Í¸Ã÷´°Ìå
+ * @author ²ñ¼Òç÷
+ *
+ */
 @SuppressWarnings("serial")
 public class Transparent extends JFrame{
 	private Image background;
@@ -39,7 +45,7 @@ public class Transparent extends JFrame{
 		robot = null;
 		try {
 			robot=new Robot();
-//			Toolkit tk=Toolkit.getDefaultToolkit();
+//			Toolkit tk=Toolkit.getDefaultToolkit();£¬
 //			Dimension d=tk.getScreenSize();
 			background=robot.createScreenCapture(new Rectangle(200, 200, 500, 500));
 		} catch (AWTException e) {

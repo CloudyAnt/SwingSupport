@@ -112,7 +112,7 @@ public class FOperator {
 		}
 	}
 	/**
-	 * 向文件中写入指定格式的内容
+	 * 向文件中写入指定编码格式的内容
 	 * @param file 文件
 	 * @param content 内容
 	 * @param encoding 编码
@@ -133,7 +133,7 @@ public class FOperator {
 	 * @param file 文件
 	 * @return 编码方式
 	 */
-	public static String Encode(File file){
+	public static String encode(File file){
 		byte[] buf = new byte[100];
 	    FileInputStream fis = null;
 		try {
@@ -171,7 +171,7 @@ public class FOperator {
 	 * @return	读取的文字
 	 */
 	public static String read(File file,int length){
-		String encoding=Encode(file);
+		String encoding=encode(file);
 	    if (encoding != null) {
 	    	if(encoding.startsWith("GB"))
 	    		return readGB(file,length);
@@ -192,7 +192,7 @@ public class FOperator {
 		FileReader in;
 		try {
 			in = new FileReader(file);
-			char c[]=new char[length];
+			char[] c = new char[length];
 			int len=in.read(c);
 			record=new String(c,0,len);
 			in.close();

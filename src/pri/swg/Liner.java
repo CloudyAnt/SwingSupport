@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 /**
  * 横向、纵向颜色渐变<br/>
- * 不支持再绘制好的Panel上添加组件，仅用于装饰
+ * 不支持在绘制好的Panel上添加组件，仅用于装饰
  * @author 柴晓
  *
  */

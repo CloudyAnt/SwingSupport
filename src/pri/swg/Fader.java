@@ -32,7 +32,7 @@ public class Fader {
 	private Integer[] present=new Integer[4],next=new Integer[4];
 	private float[] pre_float=new float[4];
 	private boolean on=true,Going=true,needBack=false;
-	//不可视构造
+	// 不可视构造
 	private Fader(Component c,int place,int time,int activity,Color...colors){
 		this.c=c;
 		this.place=place;
@@ -40,7 +40,7 @@ public class Fader {
 		this.length=colors.length+1;
 		this.colors=new Color[colors.length+1];
 		this.colors[0]=getSource(place);
-		fullTimes=time/intervals; 					//运行大致次数，据此判断每次大致加值
+		fullTimes=time/intervals; 					// 运行大致次数，据此判断每次大致加值
 		for(int i=1;i<this.colors.length;i++){
 			this.colors[i]=colors[i-1];
 		}
@@ -80,14 +80,14 @@ public class Fader {
 	public static Fader fade(Component c,int place,int time,int activity,Color...colors){
 		return deal(c,place,time,activity,colors);
 	}
-	//处理请求
+	// 处理请求
 	private static Fader deal(Component c,int place,int time,int activity,Color...colors){
 		Fader co=new Fader(c,place,time,activity,colors);
 		if(activity==RETURN)
 			return co;
 		return null;
 	}
-	//获取当前指定组件需渐变位置的颜色
+	// 获取当前指定组件需渐变位置的颜色
 	private Color getSource(int place){
 		return place==BACK_GROUND?c.getBackground():c.getForeground();
 	}
@@ -123,7 +123,7 @@ public class Fader {
 		if(index>0)
 			start(getRGBA(getSource(place)),getRGBA(colors[--index]),lines);
 	}
-	//添加监听
+	// 添加监听
 	private void addListen(int listenType){
 		if(listenType==LISTEN_MouseEnter){
 			c.addMouseListener(new MouseAdapter() {
@@ -150,7 +150,7 @@ public class Fader {
 	 * 设置参数并启动下阶段渐变线程
 	 * @param pre 当前颜色RGBA数组
 	 * @param nex 下一个颜色RGBA数组
-	 * @param lines 当前运行链标记
+	 * @param line 当前运行链标记
 	 */
 	private void start(Integer pre[],Integer nex[],int line){
 		present=pre;
@@ -159,8 +159,8 @@ public class Fader {
 		}
 		float add[]=new float[4];
 		for(int i=0;i<add.length;i++){
-			add[i]=(float)(nex[i]-pre[i])/fullTimes;//每种颜色的每次大致加值
-			pre_float[i]=pre[i];					//初始化
+			add[i]=(float)(nex[i]-pre[i])/fullTimes;// 每种颜色的每次大致加值
+			pre_float[i]=pre[i];					// 初始化
 		}
 		doSlide(add,line);
 	}
@@ -170,16 +170,17 @@ public class Fader {
 	 * @param line 运行链标记
 	 */
 	private void doSlide(final float add[],int line){
-		on=true;
+		on=true;		
 		new Thread(()-> {
-				//是否继续增加。每个颜色属性到达目标后对应的解锁。
-				Boolean locked[]={new Boolean(true),new Boolean(true),new Boolean(true),new Boolean(true)};
+				// 是否继续增加。每个颜色属性到达目标后对应的解锁。
+//				Boolean locked[]={new Boolean(true),new Boolean(true),new Boolean(true),new Boolean(true)};
+				boolean locked[] = {true, true, true, true};
 				while(on&&line==lines){
 					try {
 						Thread.sleep(intervals);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
-					}//同步next，在给pre_float赋值后next的改变会导致judge判断错误
+					}// 同步next，在给pre_float赋值后next的改变会导致judge判断错误
 					synchronized("N"){
 						for(int i=0;i<add.length;i++){
 							if(locked[i]){
@@ -192,7 +193,7 @@ public class Fader {
 					if(!locked[0]&&!locked[1]&&!locked[2]&&!locked[3])
 						on=false;
 				}
-				if(line==lines){			//检查是否要继续
+				if(line==lines){			// 检查是否要继续
 					boolean still=false;
 					if(Going){
 						if(index+1<length){
@@ -217,7 +218,7 @@ public class Fader {
 		}).start();
 	}
 	/**
-	 * 设置颜色。
+	 * 设置颜色
 	 */
 	private void setColor(float[] pre_float){
 		if(place==BACK_GROUND)

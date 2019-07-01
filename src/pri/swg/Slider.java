@@ -32,9 +32,9 @@ public class Slider {
 	private Point start,finish;
 	private float xSpeed,ySpeed,xBreakLevel=1,yBreakLevel=1,breakX=0,breakY=0;
 	private int intervals=10,times=0;
-	//on 启动 needback 一次性执行并返回 Going 正向执行 inRelative 鼠标在关联组件中 inCom在执行组件中
+	// on 启动 needback 一次性执行并返回 Going 正向执行 inRelative 鼠标在关联组件中 inCom在执行组件中
 	private boolean on=true,needBack=false,Going=false,inRelative=false,inCom=false;
-	//分支——执行指定activity
+	// 分支——执行指定activity
 	private void branch(int branch){
 		if(branch==NULL)
 			doSlide(start,finish);
@@ -45,7 +45,7 @@ public class Slider {
 		else if(branch>=LISTEN_MouseEnter)
 			addListen(branch);
 	}
-	//不可视构造
+	// 不可视构造
 	private Slider(int branch,Component relative,Component c,Point finish,int xTime,int yTime){
 		this.c=c;
 		this.relative=relative;
@@ -145,14 +145,14 @@ public class Slider {
 		Slider slide=relat(relative,c,direction,time,autoLocate,RETURN);
 		return breakDeal(slide,activity,break_percent,fSpeed_percent);
 	}
-	//普通请求处理
+	// 普通请求处理
 	private static Slider deal(int activity,Component relative,Component c,Point finish,int xTime,int yTime){
 		Slider slider=new Slider(activity,relative,c,finish,xTime,yTime);
 		if(activity==RETURN)
 			return slider;
 		return null;
 	}
-	//请求进一步处理——实现末端减速
+	// 请求进一步处理——实现末端减速
 	private static Slider breakDeal(Slider slide,int activity,float break_percent,float fSpeed_percent){
 		slide.setBreak(break_percent, fSpeed_percent);
 		if(activity==RETURN)
@@ -160,12 +160,12 @@ public class Slider {
 		slide.branch(activity);
 		return null;
 	}
-	//根据起始点获取双向的速度（每interval前进px）
+	// 根据起始点获取双向的速度（每interval前进px）
 	private void getSpeed(int xTime,int yTime){
 		xSpeed=Math.abs((float)(finish.x-start.x)/(xTime/intervals));
 		ySpeed=Math.abs((float)(finish.y-start.y)/(yTime/intervals));
 	}
-	//定向滑动获取终点
+	// 定向滑动获取终点
 	private static Point getFinish(Component c,int direction,int px){
 		int X=c.getX(),Y=c.getY();
 		if(direction==LEFT)
@@ -178,7 +178,7 @@ public class Slider {
 			return new Point(X,Y+px);
 		return new Point(0,0);
 	}
-	//关联滑动获取终点。自动定位
+	// 关联滑动获取终点。自动定位
 	private static Point getFinish_autoLoacte(Component relative,Component c,int direction,boolean autoLocate){
 		Point p=new Point(0,0);
 		int X=relative.getX(),Y=relative.getY(),W=relative.getWidth(),H=relative.getHeight(),cW=c.getWidth(),cH=c.getHeight();
@@ -188,7 +188,7 @@ public class Slider {
 			System.out.println(preferred);
 			W=preferred.width;
 			H=preferred.height;
-			//TODO 修改点：若关联对象长宽为0，则考虑其使用了相对大小。关联滑动增加内部外部区分。
+			// TODO 修改点：若关联对象长宽为0，则考虑其使用了相对大小。关联滑动增加内部外部区分。
 		}
 		if(direction==LEFT){
 			if(autoLocate)
@@ -354,7 +354,7 @@ public class Slider {
 			}
 		}).start();
 	};
-	//末端减速
+	// 末端减速
 	private float present(float distence,boolean isX){
 		float speed = 0;
 		if(isX)
@@ -384,7 +384,7 @@ public class Slider {
 	public Point getFinish() {
 		return finish;
 	}
-	//重置滑动的结尾，以下方法应对有位置变更的组件
+	// 重置滑动的结尾，以下方法应对有位置变更的组件
 	public void setFinish(int direction,boolean autoLocate) {
 		finish = getFinish_autoLoacte(relative, c, direction, autoLocate);
 	}

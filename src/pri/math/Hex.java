@@ -15,7 +15,7 @@ public class Hex {
 	 * @param hex	指定的进制
 	 * @return		十进制大数字
 	 */
-	public static BigInteger getInt_InDecimal(String s,int hex){
+	public static BigInteger getIntInDecimal(String s,int hex){
 		BigInteger bi=new BigInteger("0"),x=null;
 		if(s.charAt(0)=='-'){
 			x=new BigInteger("-1");
@@ -36,7 +36,7 @@ public class Hex {
 	 * @param hex	指定的进制
 	 * @return		转换后的字符串
 	 */
-	public static String getInt_InPointHex(BigInteger bi,Integer hex){
+	public static String getIntInPointHex(BigInteger bi,Integer hex){
 		String show="",x="";
 		if(bi.compareTo(zero) < 0)
 			x="-1";
@@ -119,7 +119,7 @@ public class Hex {
 	 * @return		转换后的字符串
 	 */
 	public static String transformation(String a,int ah,int bh){
-		return getInt_InPointHex(getInt_InDecimal(a, ah),bh);
+		return getIntInPointHex(getIntInDecimal(a, ah),bh);
 	}
 	/**
 	 * 计算
@@ -132,7 +132,7 @@ public class Hex {
 	 * @return		结果字符串
 	 */
 	public static String calculate(String sa,int ha,String sb,int hb,int operate,int hr){
-		BigInteger abi=getInt_InDecimal(sa,ha),bbi=getInt_InDecimal(sb, hb);
+		BigInteger abi=getIntInDecimal(sa,ha),bbi=getIntInDecimal(sb, hb);
 		System.out.println(abi+" "+bbi);
 		String result="0";
 		switch(operate){

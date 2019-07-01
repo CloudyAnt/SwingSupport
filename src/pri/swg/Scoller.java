@@ -9,6 +9,9 @@ import javax.swing.JScrollPane;
  * 组件滚动面板
  * @author Shinelon
  * SUPPOSE 1、添加固定宽高度的组件，在高度超出后自动滚动。2、添加不定宽度的组件，自动换行。3、尝试宽高不定的面板添加
+ * 
+ * SUSPEND DEV. 
+ * JSplitePane 中使用 JScrollPane 即可解决上述问题。 
  */
 @SuppressWarnings("serial")
 public class Scoller extends JScrollPane{
