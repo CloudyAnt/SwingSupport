@@ -6,17 +6,17 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * ÍÏÒ·¿ØÖÆÀà<hr> Drag Control
+ * æ‹–æ›³æ§åˆ¶ç±»<hr> Drag Control
  *
- * @author ²ñÏş
- * @version 1.1 17/03/23 Ô­À´µÄ»ù´¡ÉÏÔö¼ÓÁËºáÏòÓë×İÏòÍÏ¶¯Ğ§¹û
+ * @author æŸ´æ™“
+ * @version 1.1 17/03/23 åŸæ¥çš„åŸºç¡€ä¸Šå¢åŠ äº†æ¨ªå‘ä¸çºµå‘æ‹–åŠ¨æ•ˆæœ
  */
-//¼àÌıÏà¿Ë£ºÍ¬ÖÖ¼àÌıÖĞµÄ·½·¨ÊÇÏà¿ËµÄ£¬¼´¼àÌıµ½ÁíÒ»ÖÖ»î¶¯»áÁ¢¿ÌÖÕÖ¹¼àÌıµ±Ç°»î¶¯
+//ç›‘å¬ç›¸å…‹ï¼šåŒç§ç›‘å¬ä¸­çš„æ–¹æ³•æ˜¯ç›¸å…‹çš„ï¼Œå³ç›‘å¬åˆ°å¦ä¸€ç§æ´»åŠ¨ä¼šç«‹åˆ»ç»ˆæ­¢ç›‘å¬å½“å‰æ´»åŠ¨
 public class Dragger {
     /*
-     * cStart 	×é¼şÆğÊ¼Î»ÖÃ
-     * mPre		Êó±êµ±Ç°Î»ÖÃ
-     * mStart	Êó±ê°´ÏÂÎ»ÖÃ
+     * cStart 	ç»„ä»¶èµ·å§‹ä½ç½®
+     * mPre		é¼ æ ‡å½“å‰ä½ç½®
+     * mStart	é¼ æ ‡æŒ‰ä¸‹ä½ç½®
      */
     private Point cStart, mPre, mStart;
     public static final int Horizontal = 2, Vertical = 3;
@@ -150,7 +150,7 @@ public class Dragger {
      * Drags listened by Component <i>listen</i>
      */
     public static void drag(Component c, Component listen, Point leftTop, Point rightBottom) {
-        new Dragger(c, listen, leftTop, rightBottom);//Ê¹ÓÃ¶ÔÏóÒòÎªÓĞĞèÒªÊ¹ÓÃµÄÈ«¾Ö³£Á¿
+        new Dragger(c, listen, leftTop, rightBottom);//ä½¿ç”¨å¯¹è±¡å› ä¸ºæœ‰éœ€è¦ä½¿ç”¨çš„å…¨å±€å¸¸é‡
     }
 
     /**

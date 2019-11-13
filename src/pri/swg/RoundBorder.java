@@ -13,13 +13,13 @@ import javax.swing.border.Border;
 public class RoundBorder implements Border {
     private Color color;
  
-    public RoundBorder(Color color) {// ÓĞ²ÎÊıµÄ¹¹Ôì·½·¨
+    public RoundBorder(Color color) {// æœ‰å‚æ•°çš„æ„é€ æ–¹æ³•
         this.color = color;
     }
-    public RoundBorder() {// ÎŞ²Î¹¹Ôì·½·¨
+    public RoundBorder() {// æ— å‚æ„é€ æ–¹æ³•
         this.color = Color.BLACK;
-        // Èç¹ûÊµÀı»¯Ê±£¬Ã»ÓĞ´«Öµ
-        // Ä¬ÈÏÊÇºÚÉ«±ß¿ò
+        // å¦‚æœå®ä¾‹åŒ–æ—¶ï¼Œæ²¡æœ‰ä¼ å€¼
+        // é»˜è®¤æ˜¯é»‘è‰²è¾¹æ¡†
     }
     public Insets getBorderInsets(Component c) {
         return new Insets(0, 0, 0, 0);

@@ -5,21 +5,21 @@ import java.awt.event.ComponentEvent;
 
 import javax.swing.JFrame;
 /**
- * µ­Èëµ­³ö´°Ìå<hr>
- * ÊµÏÖ´°ÌåµÄµ­Èëµ­³ö£¬¼Ì³Ğ´ËÀà¼´¿É¡£<br>
- * @author ²ñÏş
+ * æ·¡å…¥æ·¡å‡ºçª—ä½“<hr>
+ * å®ç°çª—ä½“çš„æ·¡å…¥æ·¡å‡ºï¼Œç»§æ‰¿æ­¤ç±»å³å¯ã€‚<br>
+ * @author æŸ´æ™“
  * @version 1.0 16/08/29
- * @version 1.2 17/08/09 ĞŞÉÉ³ÌĞò
+ * @version 1.2 17/08/09 ä¿®ç¼®ç¨‹åº
  */
-//¾­²âÊÔ£¬ winXP´°Ìå×İºá·Ö±ğÕ¼ÓÃ44px¡¢8px£¨±ß¿òÎŞÍ¸Ã÷£©£¬win10´°Ìå×İºá·Ö±ğÕ¼ÓÃ49px¡¢16px£¨±ß¿òÓĞÍ¸Ã÷²¿·Ö£©
+//ç»æµ‹è¯•ï¼Œ winXPçª—ä½“çºµæ¨ªåˆ†åˆ«å ç”¨44pxã€8pxï¼ˆè¾¹æ¡†æ— é€æ˜ï¼‰ï¼Œwin10çª—ä½“çºµæ¨ªåˆ†åˆ«å ç”¨49pxã€16pxï¼ˆè¾¹æ¡†æœ‰é€æ˜éƒ¨åˆ†ï¼‰
 public class FadeFrame extends JFrame{
 	private static final long serialVersionUID = 1L;
-	private int fadeTime=200,intervals=10,times=0,turns=1;//timesÊÇµÚ¼¸´ÎÔËĞĞ£¬turnsÊÇÂÖµ½µÚ¼¸´ÎÔËĞĞ
+	private int fadeTime=200,intervals=10,times=0,turns=1;//timesæ˜¯ç¬¬å‡ æ¬¡è¿è¡Œï¼Œturnsæ˜¯è½®åˆ°ç¬¬å‡ æ¬¡è¿è¡Œ
 	private float from=0.0f,to=1.0f,add=0.05f;
 	private boolean goOn=true,in_with_show=true,close_after_out=true;
 	private FadeFrame thisone;
 	/**
-	 * µ­Èëµ­³ö´°Ìå£¬Ä¬ÈÏ½«ÔÚ´ò¿ªÊ±Æô¶¯µ­Èë
+	 * æ·¡å…¥æ·¡å‡ºçª—ä½“ï¼Œé»˜è®¤å°†åœ¨æ‰“å¼€æ—¶å¯åŠ¨æ·¡å…¥
 	 */
 	public FadeFrame(){
 		thisone=this;
@@ -34,11 +34,11 @@ public class FadeFrame extends JFrame{
 		});
 	}
 	/**
-	 * Ö¸¶¨ÆğÊ¼Í¸Ã÷¶ÈºÍ×îÖÕÍ¸Ã÷¶È£¬ÒÔ¼°µ­Èëµ­³öÊ±¼ä
-	 * @param from	ÆğÊ¼Í¸Ã÷¶È
-	 * @param to	ÖÕµãÍ¸Ã÷¶È
-	 * @param fadeTime µ­»¯Ê±¼ä
-	 * @param in_with_show ÊÇ·ñÔÚ´ò¿ªÊ±µ­Èë
+	 * æŒ‡å®šèµ·å§‹é€æ˜åº¦å’Œæœ€ç»ˆé€æ˜åº¦ï¼Œä»¥åŠæ·¡å…¥æ·¡å‡ºæ—¶é—´
+	 * @param from	èµ·å§‹é€æ˜åº¦
+	 * @param to	ç»ˆç‚¹é€æ˜åº¦
+	 * @param fadeTime æ·¡åŒ–æ—¶é—´
+	 * @param in_with_show æ˜¯å¦åœ¨æ‰“å¼€æ—¶æ·¡å…¥
 	 */
 	public void set(float from,float to,int fadeTime,boolean in_with_show,boolean close_after_out){
 		setOpacity(from);
@@ -50,13 +50,13 @@ public class FadeFrame extends JFrame{
 		add=(to-from)/(fadeTime/intervals);
 	}
 	/**
-	 * µ­Èë
+	 * æ·¡å…¥
 	 */
 	public void fadeIn(){
 		fade(true);
 	}
 	/**
-	 * µ­³ö
+	 * æ·¡å‡º
 	 */
 	public void fadeOut(){
 		fade(false);
@@ -86,15 +86,15 @@ public class FadeFrame extends JFrame{
 				setOpacity(opacity);
 			}
 			turns++;
-			if(time==times&&!isIn&&close_after_out)//ÍË³ö¹Ø±Õ
+			if(time==times&&!isIn&&close_after_out)//é€€å‡ºå…³é—­
 				thisone.setVisible(false);
 		}).start();
 	}
 	/**
 	 * 
-	 * @param from ÆğÊ¼Í¸Ã÷¶È
-	 * @param to ×îÖÕÍ¸Ã÷¶È
-	 * @param fadeTime µ­»¯Ê±¼ä
+	 * @param from èµ·å§‹é€æ˜åº¦
+	 * @param to æœ€ç»ˆé€æ˜åº¦
+	 * @param fadeTime æ·¡åŒ–æ—¶é—´
 	 */
 	public void setFade(float from,float to,int fadeTime){
 		this.from=from;

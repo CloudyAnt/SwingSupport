@@ -1,9 +1,9 @@
 package pri.swg.img;
 /**
- * 图像边界信息<hr>
- * 已用到的Support类：
+ * 鍥惧儚杈圭晫淇℃伅<hr>
+ * 宸茬敤鍒扮殑Support绫伙細
  * <li>Imager</li>
- * @author 柴晓
+ * @author 鏌存檽
  *
  */
 public class Bounds {

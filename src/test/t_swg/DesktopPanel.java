@@ -1,4 +1,4 @@
-package t_swg;
+package test.t_swg;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -17,20 +17,20 @@ public class DesktopPanel extends JFrame{
 		setBounds(200, 200, 500, 500);
 		setLayout(new GridLayout(1, 1));
 		
-		//×ÀÃæÃæ°å
+		//æ¡Œé¢é¢æ¿
 		JDesktopPane jd=new JDesktopPane();
 		JLabel back=new JLabel(new ImageIcon(this.getClass().getResource("mention.png"))),
-				back2=new JLabel(new ImageIcon(this.getClass().getResource("mention.png")));//»ñÈ¡±³¾°Í¼ ²¢·ÅÔÚJLabelÖĞ
-		back2.setBounds(0, 0,200 ,200);				//ÉèÖÃ±³¾°Í¼´óĞ¡
-		back2.setBounds(0, 0,400 ,200);				//ÉèÖÃ±³¾°Í¼´óĞ¡
+				back2=new JLabel(new ImageIcon(this.getClass().getResource("mention.png")));//è·å–èƒŒæ™¯å›¾ å¹¶æ”¾åœ¨JLabelä¸­
+		back2.setBounds(0, 0,200 ,200);				//è®¾ç½®èƒŒæ™¯å›¾å¤§å°
+		back2.setBounds(0, 0,400 ,200);				//è®¾ç½®èƒŒæ™¯å›¾å¤§å°
 		
-		jd.add(back,new Integer(Integer.MIN_VALUE));//Ìí¼Ó±³¾°Í¼
-		jd.add(back2,new Integer(Integer.MIN_VALUE));//Ìí¼Ó±³¾°Í¼
-		//Ö®ºó£¬½«×ÀÃæÃæ°åµ±×öÒ»°ãÃæ°åÀ´ÓÃ¾ÍĞĞ£º
+		jd.add(back,new Integer(Integer.MIN_VALUE));//æ·»åŠ èƒŒæ™¯å›¾
+		jd.add(back2,new Integer(Integer.MIN_VALUE));//æ·»åŠ èƒŒæ™¯å›¾
+		//ä¹‹åï¼Œå°†æ¡Œé¢é¢æ¿å½“åšä¸€èˆ¬é¢æ¿æ¥ç”¨å°±è¡Œï¼š
 		JButton b=new JButton("TEST");
 		b.setBounds(0, 0, 100, 100);
 		jd.add(b);
-		//¡­¡­
+		//â€¦â€¦
 		
 		
 		jd.setBackground(Color.cyan);

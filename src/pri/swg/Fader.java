@@ -5,23 +5,23 @@ import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 /**
- * Swing×é¼şÑÕÉ«µ­Èë¿ØÖÆÀà<hr>
- * <h1>¹²2¸ö·½·¨¿ÉÓÃ£º</h1>
- * <li>Èı²ÎµÄgradual£¬Ä¬ÈÏ²¿·Ö²ÎÊı</li>
- * <li>ÍêÕûµÄgradual£¬×Ô¶¨È«²¿²ÎÊı</li>
- * <h1>ÆäÖĞactivity²ÎÊıÏê½â£º</h1>
- * <li>NULL£º¡ª¡ªÁ¢¿ÌÖ´ĞĞ£¬ÎŞÌØÊâ²Ù×÷</li>
- * <li>NULL_BACK£º¡ª¡ªÁ¢¿ÌÖ´ĞĞ£¬²¢·µ»ØÔ­É«</li>
- * <li>LISTEN_MouseEnter£º¡ª¡ª¼àÌıÊó±êÒÆÈëÒÆ³ö</li>
- * <li>LISTEN_MousePress£º¡ª¡ª¼àÌıÊó±ê°´ÏÂËÉ¿ª</li>
- * <li>RETURN£º¡ª¡ª·µ»Ø¶ÔÏó</li>
- * <h1>ÒÔÉÏ·½·¨½ûÖ¹Ğ´Èë¸ßÆµÂÊ¼àÌıÖĞ</h1>
- * <h1>¶ÔÏó¿Éµ÷ÓÃµÄstart¡¢stop¡¢goOn¡¢goBack·½·¨ÔÊĞíĞ´Èë¼àÌı</h1>
- * <h1>¶ÔÏóÓÃsetter¡¢getter·½·¨ÉèÖÃ»ò»ñÈ¡Ã¿´ÎÓÃÊ±£¨time£©¡¢Ë¢ĞÂ¼ä¸ô£¨intervals/ms£©¡¢Î»ÖÃ£¨index£©</h1><hr>
- * @author ²ñÏş
- * @version 2.0 ´ó·ùÓÅ»¯1.x½á¹¹£¬Ê¹²Ù×÷Áé»î 16/09/01
- * @version 2.1 ĞŞ¸´·´ÏòÖ´ĞĞµÄindex¿ÉÄÜÎª-1´íÎó
- * @version 2.2 ÍêÈ«ĞŞ¸´Ô½½çÎÊÌâ 17/5/21
+ * Swingç»„ä»¶é¢œè‰²æ·¡å…¥æ§åˆ¶ç±»<hr>
+ * <h1>å…±2ä¸ªæ–¹æ³•å¯ç”¨ï¼š</h1>
+ * <li>ä¸‰å‚çš„gradualï¼Œé»˜è®¤éƒ¨åˆ†å‚æ•°</li>
+ * <li>å®Œæ•´çš„gradualï¼Œè‡ªå®šå…¨éƒ¨å‚æ•°</li>
+ * <h1>å…¶ä¸­activityå‚æ•°è¯¦è§£ï¼š</h1>
+ * <li>NULLï¼šâ€•â€•ç«‹åˆ»æ‰§è¡Œï¼Œæ— ç‰¹æ®Šæ“ä½œ</li>
+ * <li>NULL_BACKï¼šâ€•â€•ç«‹åˆ»æ‰§è¡Œï¼Œå¹¶è¿”å›åŸè‰²</li>
+ * <li>LISTEN_MouseEnterï¼šâ€•â€•ç›‘å¬é¼ æ ‡ç§»å…¥ç§»å‡º</li>
+ * <li>LISTEN_MousePressï¼šâ€•â€•ç›‘å¬é¼ æ ‡æŒ‰ä¸‹æ¾å¼€</li>
+ * <li>RETURNï¼šâ€•â€•è¿”å›å¯¹è±¡</li>
+ * <h1>ä»¥ä¸Šæ–¹æ³•ç¦æ­¢å†™å…¥é«˜é¢‘ç‡ç›‘å¬ä¸­</h1>
+ * <h1>å¯¹è±¡å¯è°ƒç”¨çš„startã€stopã€goOnã€goBackæ–¹æ³•å…è®¸å†™å…¥ç›‘å¬</h1>
+ * <h1>å¯¹è±¡ç”¨setterã€getteræ–¹æ³•è®¾ç½®æˆ–è·å–æ¯æ¬¡ç”¨æ—¶ï¼ˆtimeï¼‰ã€åˆ·æ–°é—´éš”ï¼ˆintervals/msï¼‰ã€ä½ç½®ï¼ˆindexï¼‰</h1><hr>
+ * @author æŸ´æ™“
+ * @version 2.0 å¤§å¹…ä¼˜åŒ–1.xç»“æ„ï¼Œä½¿æ“ä½œçµæ´» 16/09/01
+ * @version 2.1 ä¿®å¤åå‘æ‰§è¡Œçš„indexå¯èƒ½ä¸º-1é”™è¯¯
+ * @version 2.2 å®Œå…¨ä¿®å¤è¶Šç•Œé—®é¢˜ 17/5/21
  */
 public class Fader {
 	public static final int BACK_GROUND=-11,FORE_GROUND=11,
@@ -32,7 +32,7 @@ public class Fader {
 	private Integer[] present=new Integer[4],next=new Integer[4];
 	private float[] pre_float=new float[4];
 	private boolean on=true,Going=true,needBack=false;
-	// ²»¿ÉÊÓ¹¹Ôì
+	// ä¸å¯è§†æ„é€ 
 	private Fader(Component c,int place,int time,int activity,Color...colors){
 		this.c=c;
 		this.place=place;
@@ -40,7 +40,7 @@ public class Fader {
 		this.length=colors.length+1;
 		this.colors=new Color[colors.length+1];
 		this.colors[0]=getSource(place);
-		fullTimes=time/intervals; 					// ÔËĞĞ´óÖÂ´ÎÊı£¬¾İ´ËÅĞ¶ÏÃ¿´Î´óÖÂ¼ÓÖµ
+		fullTimes=time/intervals; 					// è¿è¡Œå¤§è‡´æ¬¡æ•°ï¼Œæ®æ­¤åˆ¤æ–­æ¯æ¬¡å¤§è‡´åŠ å€¼
 		for(int i=1;i<this.colors.length;i++){
 			this.colors[i]=colors[i-1];
 		}
@@ -57,42 +57,42 @@ public class Fader {
 		}
 	}
 	/**
-	 * ÑÕÉ«½¥±ä£¨Ä¬ÈÏµ¥´ÎÓÃÊ±1s)
-	 * @param c ÑÕÉ«½¥±äµÄ×é¼ş
-	 * @param activity Ö´ĞĞÈÎÎñ£¨¾ßÌå²Î¼û±¾Àà×¢ÊÍ£©
-	 * @param colors ½¥±äµ½µÄÑÕÉ«
-	 * @return ÈôactivityÎªRETURN£¬Ôò·µ»Ø¶ÔÏó£¬·ñÔò·µ»Ønull
+	 * é¢œè‰²æ¸å˜ï¼ˆé»˜è®¤å•æ¬¡ç”¨æ—¶1s)
+	 * @param c é¢œè‰²æ¸å˜çš„ç»„ä»¶
+	 * @param activity æ‰§è¡Œä»»åŠ¡ï¼ˆå…·ä½“å‚è§æœ¬ç±»æ³¨é‡Šï¼‰
+	 * @param colors æ¸å˜åˆ°çš„é¢œè‰²
+	 * @return è‹¥activityä¸ºRETURNï¼Œåˆ™è¿”å›å¯¹è±¡ï¼Œå¦åˆ™è¿”å›null
 	 * @see Fader
 	 */
 	public static Fader fade(Component c,int activity,Color...colors){
 		return deal(c,BACK_GROUND,1000,activity,colors);
 	}
 	/**
-	 * È«²Î¡ª¡ªÑÕÉ«½¥±ä
-	 * @param c ÑÕÉ«½¥±äµÄ×é¼ş
-	 * @param place ½¥±äÎ»ÖÃ
-	 * @param time µ¥´Î½¥±äÓÃÊ±£¨ms£©
-	 * @param activity Ö´ĞĞÈÎÎñ£¨¾ßÌå²Î¼û±¾Àà×¢ÊÍ£©
-	 * @param colors ½¥±äµ½µÄÑÕÉ«
-	 * @return ÈôactivityÎªRETURN£¬Ôò·µ»Ø¶ÔÏó£¬·ñÔò·µ»Ønull
+	 * å…¨å‚â€•â€•é¢œè‰²æ¸å˜
+	 * @param c é¢œè‰²æ¸å˜çš„ç»„ä»¶
+	 * @param place æ¸å˜ä½ç½®
+	 * @param time å•æ¬¡æ¸å˜ç”¨æ—¶ï¼ˆmsï¼‰
+	 * @param activity æ‰§è¡Œä»»åŠ¡ï¼ˆå…·ä½“å‚è§æœ¬ç±»æ³¨é‡Šï¼‰
+	 * @param colors æ¸å˜åˆ°çš„é¢œè‰²
+	 * @return è‹¥activityä¸ºRETURNï¼Œåˆ™è¿”å›å¯¹è±¡ï¼Œå¦åˆ™è¿”å›null
 	 * @see Fader
 	 */
 	public static Fader fade(Component c,int place,int time,int activity,Color...colors){
 		return deal(c,place,time,activity,colors);
 	}
-	// ´¦ÀíÇëÇó
+	// å¤„ç†è¯·æ±‚
 	private static Fader deal(Component c,int place,int time,int activity,Color...colors){
 		Fader co=new Fader(c,place,time,activity,colors);
 		if(activity==RETURN)
 			return co;
 		return null;
 	}
-	// »ñÈ¡µ±Ç°Ö¸¶¨×é¼şĞè½¥±äÎ»ÖÃµÄÑÕÉ«
+	// è·å–å½“å‰æŒ‡å®šç»„ä»¶éœ€æ¸å˜ä½ç½®çš„é¢œè‰²
 	private Color getSource(int place){
 		return place==BACK_GROUND?c.getBackground():c.getForeground();
 	}
 	/**
-	 * Æô¶¯½¥±ä¡£ÖÕÖ¹Ö®Ç°Ïß³Ì¡£
+	 * å¯åŠ¨æ¸å˜ã€‚ç»ˆæ­¢ä¹‹å‰çº¿ç¨‹ã€‚
 	 */
 	public void start(){
 		index++;
@@ -100,13 +100,13 @@ public class Fader {
 		start(present,next,lines);
 	}
 	/**
-	 * ÖÕÖ¹(ÔİÍ£)½ø³Ì
+	 * ç»ˆæ­¢(æš‚åœ)è¿›ç¨‹
 	 */
 	public void stop(){
 		on=false;
 	}
 	/**
-	 * ÕıÏòÖ´ĞĞ
+	 * æ­£å‘æ‰§è¡Œ
 	 */
 	public void goOn(){
 		Going=true;
@@ -115,7 +115,7 @@ public class Fader {
 			start(getRGBA(getSource(place)),getRGBA(colors[++index]),lines);
 	}
 	/**
-	 * ·´ÏòÖ´ĞĞ
+	 * åå‘æ‰§è¡Œ
 	 */
 	public void goBack(){
 		Going=false;
@@ -123,7 +123,7 @@ public class Fader {
 		if(index>0)
 			start(getRGBA(getSource(place)),getRGBA(colors[--index]),lines);
 	}
-	// Ìí¼Ó¼àÌı
+	// æ·»åŠ ç›‘å¬
 	private void addListen(int listenType){
 		if(listenType==LISTEN_MouseEnter){
 			c.addMouseListener(new MouseAdapter() {
@@ -147,10 +147,10 @@ public class Fader {
 		}
 	}
 	/**
-	 * ÉèÖÃ²ÎÊı²¢Æô¶¯ÏÂ½×¶Î½¥±äÏß³Ì
-	 * @param pre µ±Ç°ÑÕÉ«RGBAÊı×é
-	 * @param nex ÏÂÒ»¸öÑÕÉ«RGBAÊı×é
-	 * @param line µ±Ç°ÔËĞĞÁ´±ê¼Ç
+	 * è®¾ç½®å‚æ•°å¹¶å¯åŠ¨ä¸‹é˜¶æ®µæ¸å˜çº¿ç¨‹
+	 * @param pre å½“å‰é¢œè‰²RGBAæ•°ç»„
+	 * @param nex ä¸‹ä¸€ä¸ªé¢œè‰²RGBAæ•°ç»„
+	 * @param line å½“å‰è¿è¡Œé“¾æ ‡è®°
 	 */
 	private void start(Integer pre[],Integer nex[],int line){
 		present=pre;
@@ -159,20 +159,20 @@ public class Fader {
 		}
 		float add[]=new float[4];
 		for(int i=0;i<add.length;i++){
-			add[i]=(float)(nex[i]-pre[i])/fullTimes;// Ã¿ÖÖÑÕÉ«µÄÃ¿´Î´óÖÂ¼ÓÖµ
-			pre_float[i]=pre[i];					// ³õÊ¼»¯
+			add[i]=(float)(nex[i]-pre[i])/fullTimes;// æ¯ç§é¢œè‰²çš„æ¯æ¬¡å¤§è‡´åŠ å€¼
+			pre_float[i]=pre[i];					// åˆå§‹åŒ–
 		}
 		doSlide(add,line);
 	}
 	/**
-	 * ½¥±äÏß³Ì
-	 * @param add Ã¿´Î¼ÓÖµÊı×é
-	 * @param line ÔËĞĞÁ´±ê¼Ç
+	 * æ¸å˜çº¿ç¨‹
+	 * @param add æ¯æ¬¡åŠ å€¼æ•°ç»„
+	 * @param line è¿è¡Œé“¾æ ‡è®°
 	 */
 	private void doSlide(final float add[],int line){
 		on=true;		
 		new Thread(()-> {
-				// ÊÇ·ñ¼ÌĞøÔö¼Ó¡£Ã¿¸öÑÕÉ«ÊôĞÔµ½´ïÄ¿±êºó¶ÔÓ¦µÄ½âËø¡£
+				// æ˜¯å¦ç»§ç»­å¢åŠ ã€‚æ¯ä¸ªé¢œè‰²å±æ€§åˆ°è¾¾ç›®æ ‡åå¯¹åº”çš„è§£é”ã€‚
 //				Boolean locked[]={new Boolean(true),new Boolean(true),new Boolean(true),new Boolean(true)};
 				boolean locked[] = {true, true, true, true};
 				while(on&&line==lines){
@@ -180,7 +180,7 @@ public class Fader {
 						Thread.sleep(intervals);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
-					}// Í¬²½next£¬ÔÚ¸øpre_float¸³ÖµºónextµÄ¸Ä±ä»áµ¼ÖÂjudgeÅĞ¶Ï´íÎó
+					}// åŒæ­¥nextï¼Œåœ¨ç»™pre_floatèµ‹å€¼ånextçš„æ”¹å˜ä¼šå¯¼è‡´judgeåˆ¤æ–­é”™è¯¯
 					synchronized("N"){
 						for(int i=0;i<add.length;i++){
 							if(locked[i]){
@@ -193,7 +193,7 @@ public class Fader {
 					if(!locked[0]&&!locked[1]&&!locked[2]&&!locked[3])
 						on=false;
 				}
-				if(line==lines){			// ¼ì²éÊÇ·ñÒª¼ÌĞø
+				if(line==lines){			// æ£€æŸ¥æ˜¯å¦è¦ç»§ç»­
 					boolean still=false;
 					if(Going){
 						if(index+1<length){
@@ -218,7 +218,7 @@ public class Fader {
 		}).start();
 	}
 	/**
-	 * ÉèÖÃÑÕÉ«
+	 * è®¾ç½®é¢œè‰²
 	 */
 	private void setColor(float[] pre_float){
 		if(place==BACK_GROUND)
@@ -227,9 +227,9 @@ public class Fader {
 			c.setForeground(new Color((int)pre_float[0],(int)pre_float[1],(int)pre_float[2],(int)pre_float[3]));
 	}
 	/**
-	 * ÅĞ¶ÏÊÇ·ñ´ïµ½Ä¿±ê
-	 * @param i ÏÂ±ê£¨r¡¢g¡¢b¡¢a£©
-	 * @return ÊÇ·ñ¼ÌĞøÔö¼Ó£¨doSlide·½·¨ÖĞ£©
+	 * åˆ¤æ–­æ˜¯å¦è¾¾åˆ°ç›®æ ‡
+	 * @param i ä¸‹æ ‡ï¼ˆrã€gã€bã€aï¼‰
+	 * @return æ˜¯å¦ç»§ç»­å¢åŠ ï¼ˆdoSlideæ–¹æ³•ä¸­ï¼‰
 	 */
 	private boolean judge(int i){
 		boolean flag=true;
@@ -242,14 +242,14 @@ public class Fader {
 		return flag;
 	}
 	/**
-	 * ¸Ä±äÔËĞĞÁ´
+	 * æ”¹å˜è¿è¡Œé“¾
 	 */
 	private void lineChange(){
 		lines=lines>10000?0:++lines;
 	}
-	/**»ñÈ¡ÑÕÉ«µÄRGBAÖµÊı×é
-	 * @param c Ô´ÑÕÉ«
-	 * @return RGBAÊı×é
+	/**è·å–é¢œè‰²çš„RGBAå€¼æ•°ç»„
+	 * @param c æºé¢œè‰²
+	 * @return RGBAæ•°ç»„
 	 */
 	public static Integer[] getRGBA(Color c){
 		Integer[] rgb=new Integer[4];

@@ -1,4 +1,4 @@
-package t_file;
+package test.t_file;
 
 import pri.file.FOperator;
 

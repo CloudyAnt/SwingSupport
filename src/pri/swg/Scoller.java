@@ -6,12 +6,12 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 /**
- * ×é¼ş¹ö¶¯Ãæ°å
+ * ç»„ä»¶æ»šåŠ¨é¢æ¿
  * @author Shinelon
- * SUPPOSE 1¡¢Ìí¼Ó¹Ì¶¨¿í¸ß¶ÈµÄ×é¼ş£¬ÔÚ¸ß¶È³¬³öºó×Ô¶¯¹ö¶¯¡£2¡¢Ìí¼Ó²»¶¨¿í¶ÈµÄ×é¼ş£¬×Ô¶¯»»ĞĞ¡£3¡¢³¢ÊÔ¿í¸ß²»¶¨µÄÃæ°åÌí¼Ó
+ * SUPPOSE 1ã€æ·»åŠ å›ºå®šå®½é«˜åº¦çš„ç»„ä»¶ï¼Œåœ¨é«˜åº¦è¶…å‡ºåè‡ªåŠ¨æ»šåŠ¨ã€‚2ã€æ·»åŠ ä¸å®šå®½åº¦çš„ç»„ä»¶ï¼Œè‡ªåŠ¨æ¢è¡Œã€‚3ã€å°è¯•å®½é«˜ä¸å®šçš„é¢æ¿æ·»åŠ 
  * 
  * SUSPEND DEV. 
- * JSplitePane ÖĞÊ¹ÓÃ JScrollPane ¼´¿É½â¾öÉÏÊöÎÊÌâ¡£ 
+ * JSplitePane ä¸­ä½¿ç”¨ JScrollPane å³å¯è§£å†³ä¸Šè¿°é—®é¢˜ã€‚ 
  */
 @SuppressWarnings("serial")
 public class Scoller extends JScrollPane{
@@ -20,8 +20,8 @@ public class Scoller extends JScrollPane{
 	private int fixed_width,fixed_height;
 	private JPanel panel;
 	/**
-	 * ¹Ì¶¨¿í¸ß
-	 * @param width		¿í
+	 * å›ºå®šå®½é«˜
+	 * @param width		å®½
 	 */
 	public Scoller(int width,JPanel panel) {
 		super(panel);
@@ -38,7 +38,7 @@ public class Scoller extends JScrollPane{
 		return null;
 	}
 	/**
-	 * ÉèÖÃ¹ö¶¯Ãæ°åµÄ¿í¸ß
+	 * è®¾ç½®æ»šåŠ¨é¢æ¿çš„å®½é«˜
 	 */
 //	public void setFixedSize(int width,int height) {
 //		fixed_width=width;

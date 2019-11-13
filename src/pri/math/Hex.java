@@ -2,18 +2,18 @@ package pri.math;
 
 import java.math.BigInteger;
 /**
- * ½øÖÆÈÎÒâ×ª»»Àà
- * @author ²ñÏş
+ * è¿›åˆ¶ä»»æ„è½¬æ¢ç±»
+ * @author æŸ´æ™“
  *
  */
 public class Hex {
 	public static final int plus=1,minus=2,multiply=3,divide=4;
 	private static BigInteger zero=new BigInteger("0");
 	/**
-	 * ¸ø¶¨µÄ½øÖÆµÄ×Ö·û´®×ª»»ÎªÊ®½øÖÆ
-	 * @param s		Ö¸¶¨½øÖÆµÄ×Ö·û´®
-	 * @param hex	Ö¸¶¨µÄ½øÖÆ
-	 * @return		Ê®½øÖÆ´óÊı×Ö
+	 * ç»™å®šçš„è¿›åˆ¶çš„å­—ç¬¦ä¸²è½¬æ¢ä¸ºåè¿›åˆ¶
+	 * @param s		æŒ‡å®šè¿›åˆ¶çš„å­—ç¬¦ä¸²
+	 * @param hex	æŒ‡å®šçš„è¿›åˆ¶
+	 * @return		åè¿›åˆ¶å¤§æ•°å­—
 	 */
 	public static BigInteger getIntInDecimal(String s,int hex){
 		BigInteger bi=new BigInteger("0"),x=null;
@@ -31,10 +31,10 @@ public class Hex {
 		return bi.multiply(x);
 	}
 	/**
-	 * ½«Ê®½øÖÆµÄ´óÊı×Ö×ª»»ÎªÖ¸¶¨½øÖÆ
-	 * @param bi	Ê®½øÖÆ´óÊı×Ö
-	 * @param hex	Ö¸¶¨µÄ½øÖÆ
-	 * @return		×ª»»ºóµÄ×Ö·û´®
+	 * å°†åè¿›åˆ¶çš„å¤§æ•°å­—è½¬æ¢ä¸ºæŒ‡å®šè¿›åˆ¶
+	 * @param bi	åè¿›åˆ¶å¤§æ•°å­—
+	 * @param hex	æŒ‡å®šçš„è¿›åˆ¶
+	 * @return		è½¬æ¢åçš„å­—ç¬¦ä¸²
 	 */
 	public static String getIntInPointHex(BigInteger bi,Integer hex){
 		String show="",x="";
@@ -43,8 +43,8 @@ public class Hex {
 		BigInteger hex_bi=new BigInteger(hex.toString());
 		if(!bi.equals(zero))
 			while(!bi.equals(zero)){
-				BigInteger mod=bi.mod(hex_bi);		//È¡ÓàÊı
-				show=toChar_Z(mod.intValue())+show;	//intValue()·µ»Ø¶ÔÓ¦µÄintÖµ
+				BigInteger mod=bi.mod(hex_bi);		//å–ä½™æ•°
+				show=toChar_Z(mod.intValue())+show;	//intValue()è¿”å›å¯¹åº”çš„intå€¼
 				bi=bi.divide(hex_bi);
 			}
 		else
@@ -52,8 +52,8 @@ public class Hex {
 		return x+show;
 	}
 	/**
-	 * »ñÈ¡ÈıÊ®Áù½øÖÆÖ®ÏÂµÄÃ¿¸ö×ÖÄ¸´ú±íÊı×ÖÖµ
-	 * @param c ×ÖÄ¸
+	 * è·å–ä¸‰åå…­è¿›åˆ¶ä¹‹ä¸‹çš„æ¯ä¸ªå­—æ¯ä»£è¡¨æ•°å­—å€¼
+	 * @param c å­—æ¯
 	 */
 	public static int toTen(char c){
 		int i=(int)c;
@@ -78,11 +78,11 @@ public class Hex {
 		return -1;
 	}
 	/**
-	 * µÃ³öÔÚÄ³Ò»Î»ÉÏ¶ÔÓ¦µÄÊ®½øÖÆµÄ´óÊı 
-	 * @param x µ×Êı£¨ÓÉÆäËûtoTenº¯ÊıµÃ³ö£©
-	 * @param hex ½øÖÆ
-	 * @param position Î»ÖÃ£¨´ÓÓÒµ½×ó£¬1¿ªÊ¼£©
-	 * @return ¶ÔÓ¦Ê®½øÖÆµÄÖµ
+	 * å¾—å‡ºåœ¨æŸä¸€ä½ä¸Šå¯¹åº”çš„åè¿›åˆ¶çš„å¤§æ•° 
+	 * @param x åº•æ•°ï¼ˆç”±å…¶ä»–toTenå‡½æ•°å¾—å‡ºï¼‰
+	 * @param hex è¿›åˆ¶
+	 * @param position ä½ç½®ï¼ˆä»å³åˆ°å·¦ï¼Œ1å¼€å§‹ï¼‰
+	 * @return å¯¹åº”åè¿›åˆ¶çš„å€¼
 	 */
 	private static BigInteger getX(Integer x,Integer hex,Integer position){
 		BigInteger Final=new BigInteger(x.toString()),
@@ -93,9 +93,9 @@ public class Hex {
 		return Final;
 	}
 	/**
-	 * ×ª»¯Ê®½øÖÆµÄÊı×ÖÎª36½øÖÆ×Ö·û
-	 * @param i Òª×ª»¯µÄÊı×Ö
-	 * @return ×ª»¯ºóµÄ×Ö·û
+	 * è½¬åŒ–åè¿›åˆ¶çš„æ•°å­—ä¸º36è¿›åˆ¶å­—ç¬¦
+	 * @param i è¦è½¬åŒ–çš„æ•°å­—
+	 * @return è½¬åŒ–åçš„å­—ç¬¦
 	 */
 	public static char toChar_Z(int i){
 		if(i<10){
@@ -112,24 +112,24 @@ public class Hex {
 		return ' ';
 	}
 	/**
-	 * ½«ÈÎÒâ½øÖÆµÄÊı×ª»»ÎªÈÎÒâ½øÖÆ
-	 * @param a		µ±Ç°×Ö·û´®
-	 * @param ah	µ±Ç°½øÖÆ
-	 * @param bh	×ª»»½øÖÆ
-	 * @return		×ª»»ºóµÄ×Ö·û´®
+	 * å°†ä»»æ„è¿›åˆ¶çš„æ•°è½¬æ¢ä¸ºä»»æ„è¿›åˆ¶
+	 * @param a		å½“å‰å­—ç¬¦ä¸²
+	 * @param ah	å½“å‰è¿›åˆ¶
+	 * @param bh	è½¬æ¢è¿›åˆ¶
+	 * @return		è½¬æ¢åçš„å­—ç¬¦ä¸²
 	 */
 	public static String transformation(String a,int ah,int bh){
 		return getIntInPointHex(getIntInDecimal(a, ah),bh);
 	}
 	/**
-	 * ¼ÆËã
-	 * @param sa	A×Ö·û´®
-	 * @param ha	A½øÖÆ
-	 * @param sb	B×Ö·û´®
-	 * @param hb	B½øÖÆ
-	 * @param hr 	·µ»Ø½øÖÆ
-	 * @param operate	²Ù×÷
-	 * @return		½á¹û×Ö·û´®
+	 * è®¡ç®—
+	 * @param sa	Aå­—ç¬¦ä¸²
+	 * @param ha	Aè¿›åˆ¶
+	 * @param sb	Bå­—ç¬¦ä¸²
+	 * @param hb	Bè¿›åˆ¶
+	 * @param hr 	è¿”å›è¿›åˆ¶
+	 * @param operate	æ“ä½œ
+	 * @return		ç»“æœå­—ç¬¦ä¸²
 	 */
 	public static String calculate(String sa,int ha,String sb,int hb,int operate,int hr){
 		BigInteger abi=getIntInDecimal(sa,ha),bbi=getIntInDecimal(sb, hb);

@@ -11,17 +11,17 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 /**
- * ImageÍ¼ĞÎ¿ØÖÆÀà<hr>
- * <h1>ÊµÏÖÍ¼ÏñĞı×ª£¬¹¦ÄÜ´ıÀ©³ä<br>
- * ¼Ì³Ğ×ÔJPanel£¬Ê¹ÓÃÊ±´´½¨±¾Àà¶ÔÏó¡£Ö®Ç°Çë´´½¨Bounds¶ÔÏó£¬¹¹Ôìº¯Êı²ÎÊıÖĞÓĞÓÃµ½</h1>
- * @author ²ñÏş
+ * Imageå›¾å½¢æ§åˆ¶ç±»<hr>
+ * <h1>å®ç°å›¾åƒæ—‹è½¬ï¼ŒåŠŸèƒ½å¾…æ‰©å……<br>
+ * ç»§æ‰¿è‡ªJPanelï¼Œä½¿ç”¨æ—¶åˆ›å»ºæœ¬ç±»å¯¹è±¡ã€‚ä¹‹å‰è¯·åˆ›å»ºBoundså¯¹è±¡ï¼Œæ„é€ å‡½æ•°å‚æ•°ä¸­æœ‰ç”¨åˆ°</h1>
+ * @author æŸ´æ™“
  * @version 1.0 16/09/02
  */
 public class Imager extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private final int TURN=0,SILENT=-1;
-	//action ÃüÁî time ÓÃÊ± intervals Ë¢ĞÂ¼ä¸ô 
-	//iW iH Í¼Æ¬³¤¿í cX cY ÖĞĞÄµã£¨Ğı×ª£©pX pY Î»ÖÃ£¨×óÉÏ½Ç£©
+	//action å‘½ä»¤ time ç”¨æ—¶ intervals åˆ·æ–°é—´éš” 
+	//iW iH å›¾ç‰‡é•¿å®½ cX cY ä¸­å¿ƒç‚¹ï¼ˆæ—‹è½¬ï¼‰pX pY ä½ç½®ï¼ˆå·¦ä¸Šè§’ï¼‰
 	private int action,time,intervals=10,iW,iH,cX,cY,pX,pY,line=0;
 	private float radians,added=0;
 	private boolean notStop=false,sized=false,on=false,going=true;
@@ -32,7 +32,7 @@ public class Imager extends JPanel{
 //		super.repaint();
 //		System.out.println("REPAINT");
 //	}
-	public void paint(Graphics g){//ÒòÎªÒª¸ÄĞ´paint£¬ËùÒÔÒª°Ñ´Ëµ±³ÉÒ»¸ö×é¼şÌí¼Ó
+	public void paint(Graphics g){//å› ä¸ºè¦æ”¹å†™paintï¼Œæ‰€ä»¥è¦æŠŠæ­¤å½“æˆä¸€ä¸ªç»„ä»¶æ·»åŠ 
 		super.paint(g);
 		Graphics2D g2=(Graphics2D)g;
 		switch(action){
@@ -47,7 +47,7 @@ public class Imager extends JPanel{
 //			Graphics2D g2=(Graphics2D)g;
 ////			g2.scale(1,.5);
 //			g2.drawImage(img,pX,pY,iW,iH,thisone);
-//			owner.repaint();		//Ïû³ıÖ®Ç°µÄÍ¼ÏñºÛ¼£
+//			owner.repaint();		//æ¶ˆé™¤ä¹‹å‰çš„å›¾åƒç—•è¿¹
 //		}else if(action==SILENT){
 //			
 //		}
@@ -65,7 +65,7 @@ public class Imager extends JPanel{
 		dealSilent();
 	}
 	/**
-	 * ×Ô¶¯¶¨Î»ÉèÖÃ
+	 * è‡ªåŠ¨å®šä½è®¾ç½®
 	 */
 	private void autoSet(Component owner,URL url,Bounds bounds){
 		int[]ii=getSize(url);
@@ -73,13 +73,13 @@ public class Imager extends JPanel{
 		set(owner,url,new Point((this.getWidth()-ii[0])/2,(this.getHeight()-ii[1])/2));
 	}
 	/**
-	 * Ä¬ÈÏÖĞĞÄĞı×ª£¬Ô­Í¼´óĞ¡¡£
-	 * ¿ÉÍ¨¹ısetDateÉèÖÃ¾ßÌåĞı×ª¶¥µã¡¢Ğı×ªÖĞĞÄ£¬ÒÔ¼°Í¼Æ¬´óĞ¡
-	 * @param owner ¸¸×é¼ş
-	 * @param url Í¼ÏñÂ·¾¶
-	 * @param angdeg Ğı×ª½Ç¶È
-	 * @param time Ğı×ªÓÃÊ±
-	 * @param bounds ±ß½ç
+	 * é»˜è®¤ä¸­å¿ƒæ—‹è½¬ï¼ŒåŸå›¾å¤§å°ã€‚
+	 * å¯é€šè¿‡setDateè®¾ç½®å…·ä½“æ—‹è½¬é¡¶ç‚¹ã€æ—‹è½¬ä¸­å¿ƒï¼Œä»¥åŠå›¾ç‰‡å¤§å°
+	 * @param owner çˆ¶ç»„ä»¶
+	 * @param url å›¾åƒè·¯å¾„
+	 * @param angdeg æ—‹è½¬è§’åº¦
+	 * @param time æ—‹è½¬ç”¨æ—¶
+	 * @param bounds è¾¹ç•Œ
 	 */
 	public Imager(Component owner,URL url,int angdeg,int time,Bounds bounds){
 		this();
@@ -87,13 +87,13 @@ public class Imager extends JPanel{
 		dealSpin(new Point(this.getWidth()/2,this.getHeight()/2),angdeg, time);
 	}
 	/**
-	 * ×Ô¶¨ÒåÖĞĞÄĞı×ª
-	 * @param owner ¸¸×é¼ş
-	 * @param url Í¼ÏñÂ·¾¶
-	 * @param center Ğı×ªÖĞĞÄ
-	 * @param position Í¼Ïñ×óÉÏ¶¨µãÎ»ÖÃ
-	 * @param angdeg Ğı×ª½Ç¶È
-	 * @param time Ğı×ªÓÃÊ±
+	 * è‡ªå®šä¹‰ä¸­å¿ƒæ—‹è½¬
+	 * @param owner çˆ¶ç»„ä»¶
+	 * @param url å›¾åƒè·¯å¾„
+	 * @param center æ—‹è½¬ä¸­å¿ƒ
+	 * @param position å›¾åƒå·¦ä¸Šå®šç‚¹ä½ç½®
+	 * @param angdeg æ—‹è½¬è§’åº¦
+	 * @param time æ—‹è½¬ç”¨æ—¶
 	 */
 	public Imager(Component owner,URL url,Point center,Point position,int angdeg,int time){
 		this();
@@ -101,10 +101,10 @@ public class Imager extends JPanel{
 		dealSpin(center,angdeg,time);
 	}
 	/**
-	 * Í¨ÓÃÉèÖÃ
-	 * @param owner	¸¸×é¼ş
-	 * @param url Â·¾¶
-	 * @param position ×óÉÏ½Ç
+	 * é€šç”¨è®¾ç½®
+	 * @param owner	çˆ¶ç»„ä»¶
+	 * @param url è·¯å¾„
+	 * @param position å·¦ä¸Šè§’
 	 */
 	private void set(Component owner,URL url,Point position){
 		this.owner=owner;
@@ -123,7 +123,7 @@ public class Imager extends JPanel{
 	private void dealSilent(){
 		action=SILENT;
 	}
-	//Ğı×ªÉèÖÃ
+	//æ—‹è½¬è®¾ç½®
 	private void dealSpin(Point center,int angdeg,int time){
 		radians=(float) Math.toRadians(angdeg);
 		this.time=time;
@@ -131,7 +131,7 @@ public class Imager extends JPanel{
 		cY=center.y;
 		action=TURN;
 	}
-	//»ñÈ¡Í¼Ïñ´óĞ¡
+	//è·å–å›¾åƒå¤§å°
 	private int[] getSize(URL url){
 		ImageIcon i=new ImageIcon(url);
 		int []ii=new int[2];
@@ -139,14 +139,14 @@ public class Imager extends JPanel{
 		ii[1]=sized?iH:i.getIconHeight();
 		return ii;
 	}
-	//ÉèÖÃÍ¼Ïñ´óĞ¡
+	//è®¾ç½®å›¾åƒå¤§å°
 	public void setsImageSize(int width,int height){
 		iW=width;
 		iH=height;
 		sized=true;
 	}
 	/**
-	 * Æô¶¯
+	 * å¯åŠ¨
 	 */
 	public void start(){
 		lineChange();
@@ -156,13 +156,13 @@ public class Imager extends JPanel{
 		}
 	}
 	/**
-	 * ÖÕÖ¹
+	 * ç»ˆæ­¢
 	 */
 	public void stop(){
 		on=false;
 	}
 	/**
-	 * ÕıÏòÖ´ĞĞ
+	 * æ­£å‘æ‰§è¡Œ
 	 */
 	public void goOn(){
 		going=true;
@@ -170,14 +170,14 @@ public class Imager extends JPanel{
 		start();
 	}
 	/**
-	 * ·´ÏòÖ´ĞĞ
+	 * åå‘æ‰§è¡Œ
 	 */
 	public void goBack(){
 		going=false;	
 		lineChange();
 		start();
 	}
-	//Ïß³ÌÆô¶¯
+	//çº¿ç¨‹å¯åŠ¨
 	private void imageStart(){
 		on=true;
 		int preLine=line;
@@ -204,11 +204,11 @@ public class Imager extends JPanel{
 			on=false;
 		}).start();
 	}
-	//ÅĞ¶ÏÊÇ·ñ½áÊø
+	//åˆ¤æ–­æ˜¯å¦ç»“æŸ
 	private boolean judge(){
 		return radians>=0?added>=radians:added<radians;
 	}
-	//ÔËĞĞÁ´¸Ä±ä
+	//è¿è¡Œé“¾æ”¹å˜
 	private void lineChange(){
 		line=line>1000?0:++line;
 	}
@@ -243,13 +243,13 @@ public class Imager extends JPanel{
 		pY=(this.getHeight()-ii[1])/2;
 	}
 	/**
-	 * ÉèÖÃĞı×ª¶¥µã¡¢Ğı×ªÖĞĞÄ¡¢Í¼Æ¬´óĞ¡
-	 * @param picWidth Í¼Æ¬¿í¶È
-	 * @param picHeight Í¼Æ¬³¤¶È
-	 * @param centerX Ğı×ªÖĞĞÄX
-	 * @param centerY Ğı×ªÖĞĞÄY
-	 * @param positionX Ğı×ª¶¥µã X
-	 * @param positionY Ğı×ª¶¥µãY
+	 * è®¾ç½®æ—‹è½¬é¡¶ç‚¹ã€æ—‹è½¬ä¸­å¿ƒã€å›¾ç‰‡å¤§å°
+	 * @param picWidth å›¾ç‰‡å®½åº¦
+	 * @param picHeight å›¾ç‰‡é•¿åº¦
+	 * @param centerX æ—‹è½¬ä¸­å¿ƒX
+	 * @param centerY æ—‹è½¬ä¸­å¿ƒY
+	 * @param positionX æ—‹è½¬é¡¶ç‚¹ X
+	 * @param positionY æ—‹è½¬é¡¶ç‚¹Y
 	 */
 	public void setImgData(int picWidth,int picHeight,int centerX,int centerY,int positionX,int positionY){
 		iW=picWidth;
@@ -260,13 +260,13 @@ public class Imager extends JPanel{
 		pY=positionY;
 	}
 	/**
-	 * TODO Ğı×ªÊı¾İ
+	 * TODO æ—‹è½¬æ•°æ®
 	 */
 	public void setCircleData() {
 		
 	}
 	/**
-	 * TODO ¾²Ì¬Í¼Êı¾İ
+	 * TODO é™æ€å›¾æ•°æ®
 	 */
 	public void setStaticData() {
 		

@@ -1,4 +1,4 @@
-package t_swg;
+package test.t_swg;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -11,8 +11,8 @@ import pri.swg.FadeFrame;
 import pri.swg.Fader;
 import pri.swg.Slider;
 /**
- * SuiteA²âÊÔCOperator¡¢FadeFrame¡¢Slider¡¢Dragger
- * @author ²ñÏş
+ * SuiteAæµ‹è¯•COperatorã€FadeFrameã€Sliderã€Dragger
+ * @author æŸ´æ™“
  *
  */
 public class Test_SuiteA extends FadeFrame{

@@ -11,15 +11,15 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.JarOutputStream;
 /**
- * Jar°ü²Ù×÷Àà<br/>
+ * JaråŒ…æ“ä½œç±»<br/>
  * Unchecked
  * @author Shinelon
  */
 public class JarOperator {
 	/**
-	 * ¶ÁÈ¡jarÖĞÎÄ¼ş
+	 * è¯»å–jarä¸­æ–‡ä»¶
 	 * @see {@link pri.file.JarOperator#readJar(JarFile)}
-	 * @param path Â·¾¶
+	 * @param path è·¯å¾„
 	 */
 	public static HashMap<String,String> readJar(String path){
 		try {
@@ -30,9 +30,9 @@ public class JarOperator {
 		return null;
 	}
 	/**
-	 * ¶ÁÈ¡JarFileÖĞµÄÎÄ¼ş
-	 * @param file Òª¶ÁÈ¡µÄjarÎÄ¼ş
-	 * @return {@code HashMap<String,String>}µÚÒ»¸öStringÎª°üÖĞÂ·¾¶£¬µÚ¶ş¸öÊÇÄÚÈİ
+	 * è¯»å–JarFileä¸­çš„æ–‡ä»¶
+	 * @param file è¦è¯»å–çš„jaræ–‡ä»¶
+	 * @return {@code HashMap<String,String>}ç¬¬ä¸€ä¸ªStringä¸ºåŒ…ä¸­è·¯å¾„ï¼Œç¬¬äºŒä¸ªæ˜¯å†…å®¹
 	 */
 	public static HashMap<String,String> readJar(JarFile file){
 		HashMap<String,String> hss = new HashMap<>();
@@ -60,9 +60,9 @@ public class JarOperator {
 		return hss;
 	}
 	/**
-	 * Ğ´ÈëJarFile
-	 * @param path ÎÄ¼şÂ·¾¶
-	 * @param file ÒªĞ´ÈëµÄÎÄ¼ş£¨ÎÄ¼ş¼Ğ£©
+	 * å†™å…¥JarFile
+	 * @param path æ–‡ä»¶è·¯å¾„
+	 * @param file è¦å†™å…¥çš„æ–‡ä»¶ï¼ˆæ–‡ä»¶å¤¹ï¼‰
 	 */
 	public static void writeJar(String path,File file){
 		JarOutputStream stream;
@@ -91,9 +91,9 @@ public class JarOperator {
 		
 	}
 	/**
-	 * Ğ´ÈëJarFile
-	 * @param path ÎÄ¼şÂ·¾¶
-	 * @param hss <{@code HashMap<String,String>}µÚÒ»¸öStringÎªÎÄ¼şÃû£¬µÚ¶ş¸öÎªÄÚÈİ
+	 * å†™å…¥JarFile
+	 * @param path æ–‡ä»¶è·¯å¾„
+	 * @param hss <{@code HashMap<String,String>}ç¬¬ä¸€ä¸ªStringä¸ºæ–‡ä»¶åï¼Œç¬¬äºŒä¸ªä¸ºå†…å®¹
 	 */
 	public static void writeJar(String path,HashMap<String,String> hss){
 		JarOutputStream stream;

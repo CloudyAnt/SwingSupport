@@ -11,7 +11,7 @@ import javax.swing.border.Border;
 public class ULabel extends JLabel{
 	private static final long serialVersionUID = 1L;
 	private Border border=null;
-	private Font font=new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16);
+	private Font font=new Font("å¾®è½¯é›…é»‘",Font.BOLD,16);
 	private Color bg=Color.WHITE,fg=Color.BLACK;
 	public static final int BACK_GROUND=1,FORE_GROUND=2;
 //	private Fader bf=null,ff=null;

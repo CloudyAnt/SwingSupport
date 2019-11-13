@@ -23,38 +23,38 @@ import org.mozilla.universalchardet.UniversalDetector;
 
 import pri.util.Sys;
 /**
- * ÎÄ¼ş²Ù×÷Àà<br/>
- * µ¼Èë<a>http://code.google.com/p/juniversalchardet<a/>ÅĞ¶ÏÎÄ¼ş±àÂë¸ñÊ½
- * @author ²ñÏş
- * @version 1.1 Ôö¼ÓÁË±àÂëÅĞ¶Ï´úÂë£¬¸ù¾İ±àÂë½øĞĞ¶ÁÈ¡ 17/5/21
+ * æ–‡ä»¶æ“ä½œç±»<br/>
+ * å¯¼å…¥<a>http://code.google.com/p/juniversalchardet<a/>åˆ¤æ–­æ–‡ä»¶ç¼–ç æ ¼å¼
+ * @author æŸ´æ™“
+ * @version 1.1 å¢åŠ äº†ç¼–ç åˆ¤æ–­ä»£ç ï¼Œæ ¹æ®ç¼–ç è¿›è¡Œè¯»å– 17/5/21
  */
 public class FOperator {
-	public static final String author="²ñ¼Òç÷";
+	public static final String author="æŸ´å®¶çª";
 	/**
 	 * UseLess
-	 * »ñÈ¡ÎÄ¼ş¼ĞÖĞËùÓĞÎÄ¼ş
+	 * è·å–æ–‡ä»¶å¤¹ä¸­æ‰€æœ‰æ–‡ä»¶
 	 */
 	public static File[] getFiles(File folder){
 		return folder.listFiles();
 	}
 	/**
-	 * »ñÈ¡URLÖ¸¶¨µÄÎÄ¼ş
+	 * è·å–URLæŒ‡å®šçš„æ–‡ä»¶
 	 * @param source URL
-	 * @return ÎÄ¼ş
+	 * @return æ–‡ä»¶
 	 */
 	public static File getResoureFile(Class<?> cla,String source){
 		try {
 			return new File(URLDecoder.decode(cla.getResource(source).getPath(),"UTF-8"));
-			//ÖĞÎÄ×Ö·û»á±»UFT-8±àÂë£¬Ğè½âÂë
+			//ä¸­æ–‡å­—ç¬¦ä¼šè¢«UFT-8ç¼–ç ï¼Œéœ€è§£ç 
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	/**
-	 * »ñÈ¡ÎÄ¼ş¼ĞÖĞËùÓĞÖ¸¶¨µÄÎÄ¼ş
-	 * @param folder  	ÎÄ¼ş¼Ğ
-	 * @param suffix	ºó×º
+	 * è·å–æ–‡ä»¶å¤¹ä¸­æ‰€æœ‰æŒ‡å®šçš„æ–‡ä»¶
+	 * @param folder  	æ–‡ä»¶å¤¹
+	 * @param suffix	åç¼€
 	 */
 	public static ArrayList<File> getPointedFiles(File folder,String suffix){
 		File files[]=getFiles(folder);
@@ -66,9 +66,9 @@ public class FOperator {
 		return al;
 	}
 	/**
-	 * ¼ì²éÎÄ¼şÊÇ·ñÎªÖ¸¶¨ÎÄ¼ş
-	 * @param file µÈ´ı¼ìÑéµÄÎÄ¼ş
-	 * @param compare Ö¸¶¨µÄºó×º
+	 * æ£€æŸ¥æ–‡ä»¶æ˜¯å¦ä¸ºæŒ‡å®šæ–‡ä»¶
+	 * @param file ç­‰å¾…æ£€éªŒçš„æ–‡ä»¶
+	 * @param compare æŒ‡å®šçš„åç¼€
 	 */
 	public static boolean compare(File file,String compare){
 		char[]name=file.getName().toCharArray();
@@ -85,9 +85,9 @@ public class FOperator {
 		return false;
 	}
 	/**
-	 * »ñÈ¡ÎÄ¼ş×îºóµÄĞŞ¸ÄÊ±¼ä
-	 * @param file Òª»ñÈ¡µÄÎÄ¼ş
-	 * @return ×îºóĞŞ¸ÄÊ±¼ä
+	 * è·å–æ–‡ä»¶æœ€åçš„ä¿®æ”¹æ—¶é—´
+	 * @param file è¦è·å–çš„æ–‡ä»¶
+	 * @return æœ€åä¿®æ”¹æ—¶é—´
 	 */
 	public static String getLastModifyTime(File file){
 		Calendar cal = Calendar.getInstance();  
@@ -97,9 +97,9 @@ public class FOperator {
         return formatter.format(cal.getTime());
 	}
 	/**
-	 * ÏòÎÄ¼şÖĞĞ´ÈëÄÚÈİ£¬Çå¿ÕÖ®Ç°µÄÄÚÈİ
-	 * @param file ÒªĞ´ÈëµÄÎÄ¼ş
-	 * @param str ÒªĞ´ÈëµÄÎÄ×Ö
+	 * å‘æ–‡ä»¶ä¸­å†™å…¥å†…å®¹ï¼Œæ¸…ç©ºä¹‹å‰çš„å†…å®¹
+	 * @param file è¦å†™å…¥çš„æ–‡ä»¶
+	 * @param str è¦å†™å…¥çš„æ–‡å­—
 	 */
 	public static void write(File file,String str){
 		try {
@@ -112,10 +112,10 @@ public class FOperator {
 		}
 	}
 	/**
-	 * ÏòÎÄ¼şÖĞĞ´ÈëÖ¸¶¨±àÂë¸ñÊ½µÄÄÚÈİ
-	 * @param file ÎÄ¼ş
-	 * @param content ÄÚÈİ
-	 * @param encoding ±àÂë
+	 * å‘æ–‡ä»¶ä¸­å†™å…¥æŒ‡å®šç¼–ç æ ¼å¼çš„å†…å®¹
+	 * @param file æ–‡ä»¶
+	 * @param content å†…å®¹
+	 * @param encoding ç¼–ç 
 	 */
 	public static void write(File file, String content, String encoding){   
         try {
@@ -129,9 +129,9 @@ public class FOperator {
 		}  
     }  
 	/**
-	 * ÅĞ¶Ï±àÂë·½Ê½
-	 * @param file ÎÄ¼ş
-	 * @return ±àÂë·½Ê½
+	 * åˆ¤æ–­ç¼–ç æ–¹å¼
+	 * @param file æ–‡ä»¶
+	 * @return ç¼–ç æ–¹å¼
 	 */
 	public static String encode(File file){
 		byte[] buf = new byte[100];
@@ -156,19 +156,19 @@ public class FOperator {
 	    return encoding;
 	}
 	/**
-	 * ´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ
-	 * @param file Òª¶ÁÈ¡µÄÎÄ¼ş
-	 * @param length Òª¶ÁµÄ³¤¶È
-	 * @return ¶ÁÈ¡µÄÎÄ×Ö
+	 * ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®
+	 * @param file è¦è¯»å–çš„æ–‡ä»¶
+	 * @param length è¦è¯»çš„é•¿åº¦
+	 * @return è¯»å–çš„æ–‡å­—
 	 */
 //	public static String readOut(File file,int length){
 //		return readOut(file,length,"");
 //	}
 	/**
-	 * ´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ
-	 * @param file	¶ÁÈ¡µÄÎÄ¼ş
-	 * @param length ¶ÁÈ¡³¤¶È
-	 * @return	¶ÁÈ¡µÄÎÄ×Ö
+	 * ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®
+	 * @param file	è¯»å–çš„æ–‡ä»¶
+	 * @param length è¯»å–é•¿åº¦
+	 * @return	è¯»å–çš„æ–‡å­—
 	 */
 	public static String read(File file,int length){
 		String encoding=encode(file);
@@ -177,15 +177,15 @@ public class FOperator {
 	    		return readGB(file,length);
 	    	return read(file,encoding,length);
 	    }else{
-	    	JOptionPane.showMessageDialog(null, "ÎÄµµ±àÂë½âÎö´íÎó£¬ÇëÁªÏµ"+author, "×¢Òâ", JOptionPane.WARNING_MESSAGE);
+	    	JOptionPane.showMessageDialog(null, "æ–‡æ¡£ç¼–ç è§£æé”™è¯¯ï¼Œè¯·è”ç³»"+author, "æ³¨æ„", JOptionPane.WARNING_MESSAGE);
 	    	String os=Sys.getInfo(Sys.Os);
-	    	if(os.startsWith("Mac")||os.startsWith("OS"))//»ñÈ¡ÏµÍ³
+	    	if(os.startsWith("Mac")||os.startsWith("OS"))//è·å–ç³»ç»Ÿ
 	    		return read(file,"UTF-8",length);
 	    	return readGB(file,length);
 	    }
 	}
 	/**
-	 * ¶ÁÈ¡GB±àÂëÎÄ¼ş
+	 * è¯»å–GBç¼–ç æ–‡ä»¶
 	 */
 	public static String readGB(File file,int length){
 		String record="";
@@ -202,7 +202,7 @@ public class FOperator {
 		return record;
 	}
 	/**
-	 * ¶ÁÈ¡encoding±àÂëµÄÎÄ¼ş£¨Ò»°ãĞÎÊ½¶ÁÈ¡£©
+	 * è¯»å–encodingç¼–ç çš„æ–‡ä»¶ï¼ˆä¸€èˆ¬å½¢å¼è¯»å–ï¼‰
 	 */
 	public static String read(File file,String encoding,int length){
 		InputStreamReader isr = null;
@@ -226,7 +226,7 @@ public class FOperator {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        //UTF8 ÎÄ¼ş ¿ªÍ·¿ÉÄÜÓĞÌØÊâ×Ö·û
+        //UTF8 æ–‡ä»¶ å¼€å¤´å¯èƒ½æœ‰ç‰¹æ®Šå­—ç¬¦
 		return result.charAt(0)==65279?result.substring(1):result;
 	}
 }

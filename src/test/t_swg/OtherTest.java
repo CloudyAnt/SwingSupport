@@ -1,4 +1,4 @@
-package t_swg;
+package test.t_swg;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -17,7 +17,7 @@ public class OtherTest extends JFrame{
 		setLayout(null);
 		l=new Liner(400,100,Liner.Horizontal);
 		l.draw(Color.white, Color.black,Color.white);
-		l.setString("²âÊÔÒ»ÏÂ", new Font("Î¢ÈíÑÅºÚ",Font.BOLD,20), Color.cyan,Liner.Left);
+		l.setString("æµ‹è¯•ä¸€ä¸‹", new Font("å¾®è½¯é›…é»‘",Font.BOLD,20), Color.cyan,Liner.Left);
 		Fader.fade(l, Fader.FORE_GROUND, 200, Fader.LISTEN_MouseEnter, Color.MAGENTA,Color.YELLOW);
 		add(l);
 		setVisible(true);

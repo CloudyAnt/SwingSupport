@@ -1,4 +1,4 @@
-package t_swg;
+package test.t_swg;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -11,8 +11,8 @@ import pri.swg.Fader;
 import pri.swg.img.Bounds;
 import pri.swg.img.Imager;
 /**
- * SuiteBÖ÷Òª²âÊÔImager¡¢Painter
- * @author ²ñÏş
+ * SuiteBä¸»è¦æµ‹è¯•Imagerã€Painter
+ * @author æŸ´æ™“
  *
  */
 public class Test_SuiteB extends JFrame{
@@ -23,7 +23,7 @@ public class Test_SuiteB extends JFrame{
 		setLayout(null);
 		this.getContentPane().setBackground(Color.lightGray);
 		URL url=this.getClass().getResource("Meitu_main.png");
-		//Ê¹Í¼ÏñÔÚÖĞĞÄĞı×ªĞèÒªÌáÇ°ÖªµÀÃæ°å±ß½ç
+		//ä½¿å›¾åƒåœ¨ä¸­å¿ƒæ—‹è½¬éœ€è¦æå‰çŸ¥é“é¢æ¿è¾¹ç•Œ
 		Bounds bounds=new Bounds(0, 0, 1000, 700);
 //		Imager i=new Imager(this,url,bounds);
 //		i.setDate(700, 700, 0, 0, 0, 0);

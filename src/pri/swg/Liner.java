@@ -9,17 +9,17 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 /**
- * ºáÏò¡¢×İÏòÑÕÉ«½¥±ä<br/>
- * ²»Ö§³ÖÔÚ»æÖÆºÃµÄPanelÉÏÌí¼Ó×é¼ş£¬½öÓÃÓÚ×°ÊÎ
- * @author ²ñÏş
+ * æ¨ªå‘ã€çºµå‘é¢œè‰²æ¸å˜<br/>
+ * ä¸æ”¯æŒåœ¨ç»˜åˆ¶å¥½çš„Panelä¸Šæ·»åŠ ç»„ä»¶ï¼Œä»…ç”¨äºè£…é¥°
+ * @author æŸ´æ™“
  *
  */
 public class Liner extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private int height;
     private int width;
-    private BufferedImage bufImg = null; // ÔÚ¸ÃBufferedImage¶ÔÏóÖĞ»æÖÆÑÕÉ«
-    private Font font=new Font("Î¢ÈíÑÅºÚ",Font.BOLD,14);
+    private BufferedImage bufImg = null; // åœ¨è¯¥BufferedImageå¯¹è±¡ä¸­ç»˜åˆ¶é¢œè‰²
+    private Font font=new Font("å¾®è½¯é›…é»‘",Font.BOLD,14);
     private String text="";
     private int x=0,y=0;
     private Color color=Color.black;
@@ -34,7 +34,7 @@ public class Liner extends JPanel{
 		setBounds(0, 0, width, height);
 	}
 	public void draw(Color a,Color...colors){
-		bufImg = new BufferedImage(width, height, BufferedImage.TYPE_4BYTE_ABGR);// ÊµÀı»¯BufferedImage
+		bufImg = new BufferedImage(width, height, BufferedImage.TYPE_4BYTE_ABGR);// å®ä¾‹åŒ–BufferedImage
 		Graphics g = bufImg.getGraphics();
 		int singleWidth=horizontal?width/colors.length:height/colors.length;
 		float[] pre=getRGB(a);

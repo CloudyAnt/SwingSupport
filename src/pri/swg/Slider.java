@@ -6,24 +6,24 @@ import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 /**
- * Swing×é¼ş»¬¶¯¿ØÖÆÀà<hr>
- * <h1>3¸öÎŞÄ©¶Ë¼õËÙ¾²Ì¬·½·¨</h1>
- * slide(¶¨µã),direct(¶¨Ïò¶¨³¤),relat(¹ØÁª)¡£<br>
- * <h1>3¸öÓĞÄ©¶Ë¼õËÙ¾²Ì¬·½·¨:</h1>
- * s_break,d_break,r_break¡£¶ÔÓ¦ÒÔÉÏ3¸ö·½·¨£¬²¢¸ù¾İÖ¸¶¨²ÎÊıÄ©¶Ë¼õËÙ¡£
- * <h1>Ã¿¸ö¾²Ì¬·½·¨ÖĞ¶¼ÓĞactivity²ÎÊı£¬¶ÔÓ¦²Ù×÷:</h1>
- * <li>NULL:¡ª¡ªÁ¢¿ÌÖ´ĞĞ£¬ÎŞÌØÊâ²Ù×÷</li>
- * <li>NULL_BACK:¡ª¡ªÁ¢¿ÌÖ´ĞĞ£¬²¢·µ»ØÔ­µã</li>
- * <li>RETURN:¡ª¡ª·µ»Ø¶ÔÏó</li>
- * <li>LISTEN_MouseEnter:¡ª¡ª¼àÌıÊó±êÒÆÈëÒÆ³ö</li>
- * <li>LISTEN_MousePress:¡ª¡ª¼àÌıÊó±ê°´ÏÂËÉ¿ª</li>
- * <h1>ÒÔÉÏ·½·¨½ûÖ¹Ğ´Èë¸ßÆµÂÊ¼àÌıÖĞ</h1>
- * <h1>¶ÔÏó¿Éµ÷ÓÃµÄstart¡¢stop¡¢goOn¡¢goBack·½·¨ÔÊĞíĞ´Èë¼àÌı</h1>
- * <h1>¶ÔÏóÓÃsetter¡¢getter·½·¨ÉèÖÃ»ò»ñÈ¡Ã¿´ÎÓÃÊ±£¨time£©¡¢Ë¢ĞÂ¼ä¸ô£¨intervals/ms£©</h1><hr>
- * @author ²ñÏş
- * @version 2.0 ´ó·ùĞŞ¸Ä¡¢ÓÅ»¯1.xÖĞµÄ³ÉÔ±£¬Ê¹²Ù×÷Áé»î¡£ÊµÏÖÄ©¶Ë¼õËÙµÈ·½·¨ 16/08/27
- * @version 2.1 ÓÅ»¯6¸ö¾²Ì¬¹«¿ª·½·¨¡¢ĞŞ¸´ÎŞÏŞ·´ÏòÖ´ĞĞbug 16/09/01
- * @version 2.2 ĞŞÉÉ²¿·Ö³ÌĞò¡£Ôö¼Ó²¿·Ögetter¡¢setterÓ¦¶Ô¸ü¶àÇéĞÎ 16/09/02
+ * Swingç»„ä»¶æ»‘åŠ¨æ§åˆ¶ç±»<hr>
+ * <h1>3ä¸ªæ— æœ«ç«¯å‡é€Ÿé™æ€æ–¹æ³•</h1>
+ * slide(å®šç‚¹),direct(å®šå‘å®šé•¿),relat(å…³è”)ã€‚<br>
+ * <h1>3ä¸ªæœ‰æœ«ç«¯å‡é€Ÿé™æ€æ–¹æ³•:</h1>
+ * s_break,d_break,r_breakã€‚å¯¹åº”ä»¥ä¸Š3ä¸ªæ–¹æ³•ï¼Œå¹¶æ ¹æ®æŒ‡å®šå‚æ•°æœ«ç«¯å‡é€Ÿã€‚
+ * <h1>æ¯ä¸ªé™æ€æ–¹æ³•ä¸­éƒ½æœ‰activityå‚æ•°ï¼Œå¯¹åº”æ“ä½œ:</h1>
+ * <li>NULL:â€•â€•ç«‹åˆ»æ‰§è¡Œï¼Œæ— ç‰¹æ®Šæ“ä½œ</li>
+ * <li>NULL_BACK:â€•â€•ç«‹åˆ»æ‰§è¡Œï¼Œå¹¶è¿”å›åŸç‚¹</li>
+ * <li>RETURN:â€•â€•è¿”å›å¯¹è±¡</li>
+ * <li>LISTEN_MouseEnter:â€•â€•ç›‘å¬é¼ æ ‡ç§»å…¥ç§»å‡º</li>
+ * <li>LISTEN_MousePress:â€•â€•ç›‘å¬é¼ æ ‡æŒ‰ä¸‹æ¾å¼€</li>
+ * <h1>ä»¥ä¸Šæ–¹æ³•ç¦æ­¢å†™å…¥é«˜é¢‘ç‡ç›‘å¬ä¸­</h1>
+ * <h1>å¯¹è±¡å¯è°ƒç”¨çš„startã€stopã€goOnã€goBackæ–¹æ³•å…è®¸å†™å…¥ç›‘å¬</h1>
+ * <h1>å¯¹è±¡ç”¨setterã€getteræ–¹æ³•è®¾ç½®æˆ–è·å–æ¯æ¬¡ç”¨æ—¶ï¼ˆtimeï¼‰ã€åˆ·æ–°é—´éš”ï¼ˆintervals/msï¼‰</h1><hr>
+ * @author æŸ´æ™“
+ * @version 2.0 å¤§å¹…ä¿®æ”¹ã€ä¼˜åŒ–1.xä¸­çš„æˆå‘˜ï¼Œä½¿æ“ä½œçµæ´»ã€‚å®ç°æœ«ç«¯å‡é€Ÿç­‰æ–¹æ³• 16/08/27
+ * @version 2.1 ä¼˜åŒ–6ä¸ªé™æ€å…¬å¼€æ–¹æ³•ã€ä¿®å¤æ— é™åå‘æ‰§è¡Œbug 16/09/01
+ * @version 2.2 ä¿®ç¼®éƒ¨åˆ†ç¨‹åºã€‚å¢åŠ éƒ¨åˆ†getterã€setteråº”å¯¹æ›´å¤šæƒ…å½¢ 16/09/02
  */
 public class Slider {
 	public final static int TOP=1,BOTTOM=2,LEFT=3,RIGHT=4,NULL=5,NULL_BACK=6,RETURN=7,
@@ -32,9 +32,9 @@ public class Slider {
 	private Point start,finish;
 	private float xSpeed,ySpeed,xBreakLevel=1,yBreakLevel=1,breakX=0,breakY=0;
 	private int intervals=10,times=0;
-	// on Æô¶¯ needback Ò»´ÎĞÔÖ´ĞĞ²¢·µ»Ø Going ÕıÏòÖ´ĞĞ inRelative Êó±êÔÚ¹ØÁª×é¼şÖĞ inComÔÚÖ´ĞĞ×é¼şÖĞ
+	// on å¯åŠ¨ needback ä¸€æ¬¡æ€§æ‰§è¡Œå¹¶è¿”å› Going æ­£å‘æ‰§è¡Œ inRelative é¼ æ ‡åœ¨å…³è”ç»„ä»¶ä¸­ inComåœ¨æ‰§è¡Œç»„ä»¶ä¸­
 	private boolean on=true,needBack=false,Going=false,inRelative=false,inCom=false;
-	// ·ÖÖ§¡ª¡ªÖ´ĞĞÖ¸¶¨activity
+	// åˆ†æ”¯â€•â€•æ‰§è¡ŒæŒ‡å®šactivity
 	private void branch(int branch){
 		if(branch==NULL)
 			doSlide(start,finish);
@@ -45,7 +45,7 @@ public class Slider {
 		else if(branch>=LISTEN_MouseEnter)
 			addListen(branch);
 	}
-	// ²»¿ÉÊÓ¹¹Ôì
+	// ä¸å¯è§†æ„é€ 
 	private Slider(int branch,Component relative,Component c,Point finish,int xTime,int yTime){
 		this.c=c;
 		this.relative=relative;
@@ -55,104 +55,104 @@ public class Slider {
 		branch(branch);
 	}
 	/**
-	 * ¶¨µã»¬¶¯£¨ÎŞ¼õËÙ£©
+	 * å®šç‚¹æ»‘åŠ¨ï¼ˆæ— å‡é€Ÿï¼‰
 	 * @see Slider
-	 * @param c ²Ù×÷¶ÔÏó
-	 * @param finish ÖÕµã
-	 * @param xTime ºáÏòÓÃÊ±
-	 * @param yTime ×İÏòÓÃÊ±
-	 * @param activity ÈÎÎñ£¨¾ßÌå²Î¼ûÀà×¢ÊÍ£©
-	 * @return ÔÚactivityÎªRETURNÊ±·µ»ØSlider¶ÔÏó
+	 * @param c æ“ä½œå¯¹è±¡
+	 * @param finish ç»ˆç‚¹
+	 * @param xTime æ¨ªå‘ç”¨æ—¶
+	 * @param yTime çºµå‘ç”¨æ—¶
+	 * @param activity ä»»åŠ¡ï¼ˆå…·ä½“å‚è§ç±»æ³¨é‡Šï¼‰
+	 * @return åœ¨activityä¸ºRETURNæ—¶è¿”å›Sliderå¯¹è±¡
 	 */
 	public static Slider slide(Component c,Point finish,int xTime,int yTime,int activity){
 		return deal(activity,null,c,finish,xTime,yTime);
 	}
 	/**
-	 * ¶¨µã»¬¶¯£¨Ä©¶Ë¼õËÙ£©
+	 * å®šç‚¹æ»‘åŠ¨ï¼ˆæœ«ç«¯å‡é€Ÿï¼‰
 	 * @see Slider
-	 * @param c ²Ù×÷¶ÔÏó
-	 * @param finish ÖÕµã
-	 * @param xTime ºáÏòÓÃÊ±£¨Î¢Ãë£©
-	 * @param yTime ×İÏòÓÃÊ±£¨Î¢Ãë£©
-	 * @param activity ÈÎÎñ£¨¾ßÌå²Î¼ûÀà×¢ÊÍ£©
-	 * @param break_percent Ä©¶Ë¼õËÙµÄ¾àÀë£¨ÒÔĞ¡Êı±íÊ¾°Ù·Ö±È[0.0f,1.0f]£©
-	 * @param fSpeed_percent Ä©¶Ë¼õËÙµÄ×îÖÕËÙ¶È£¨ÒÔĞ¡Êı±íÊ¾°Ù·Ö±È(0.0f,1.0f]£©
-	 * @return ÔÚactivityÎªRETURNÊ±·µ»ØSlider¶ÔÏó
+	 * @param c æ“ä½œå¯¹è±¡
+	 * @param finish ç»ˆç‚¹
+	 * @param xTime æ¨ªå‘ç”¨æ—¶ï¼ˆå¾®ç§’ï¼‰
+	 * @param yTime çºµå‘ç”¨æ—¶ï¼ˆå¾®ç§’ï¼‰
+	 * @param activity ä»»åŠ¡ï¼ˆå…·ä½“å‚è§ç±»æ³¨é‡Šï¼‰
+	 * @param break_percent æœ«ç«¯å‡é€Ÿçš„è·ç¦»ï¼ˆä»¥å°æ•°è¡¨ç¤ºç™¾åˆ†æ¯”[0.0f,1.0f]ï¼‰
+	 * @param fSpeed_percent æœ«ç«¯å‡é€Ÿçš„æœ€ç»ˆé€Ÿåº¦ï¼ˆä»¥å°æ•°è¡¨ç¤ºç™¾åˆ†æ¯”(0.0f,1.0f]ï¼‰
+	 * @return åœ¨activityä¸ºRETURNæ—¶è¿”å›Sliderå¯¹è±¡
 	 */
 	public static Slider s_break(Component c,Point finish,int xTime,int yTime,int activity,float break_percent,float fSpeed_percent){
 		Slider slide=slide(c,finish,xTime,yTime,RETURN);
 		return breakDeal(slide,activity,break_percent,fSpeed_percent);
 	}
 	/**
-	 * ¶¨Ïò»¬¶¯£¨ÎŞ¼õËÙ£©
+	 * å®šå‘æ»‘åŠ¨ï¼ˆæ— å‡é€Ÿï¼‰
 	 * @see Slider
-	 * @param c ²Ù×÷¶ÔÏó
-	 * @param direction »¬¶¯·½Ïò TOP|LEFT|BOTTOM|RIGHT
-	 * @param px »¬¶¯¾àÀë
-	 * @param time »¬¶¯Ê±¼ä£¨Î¢Ãë£©
-	 * @param activity ÈÎÎñ£¨¾ßÌå²Î¼ûÀà×¢ÊÍ£©
-	 * @return ÔÚactivityÎªRETURNÊ±·µ»ØSlider¶ÔÏó
+	 * @param c æ“ä½œå¯¹è±¡
+	 * @param direction æ»‘åŠ¨æ–¹å‘ TOP|LEFT|BOTTOM|RIGHT
+	 * @param px æ»‘åŠ¨è·ç¦»
+	 * @param time æ»‘åŠ¨æ—¶é—´ï¼ˆå¾®ç§’ï¼‰
+	 * @param activity ä»»åŠ¡ï¼ˆå…·ä½“å‚è§ç±»æ³¨é‡Šï¼‰
+	 * @return åœ¨activityä¸ºRETURNæ—¶è¿”å›Sliderå¯¹è±¡
 	 */
 	public static Slider direct(Component c,int direction,int px,int time,int activity){
 		Point finish=getFinish(c,direction,px);
 		return deal(activity,null,c,finish,time,time);
 	}
 	/**
-	 * ¶¨Ïò»¬¶¯£¨Ä©¶Ë¼õËÙ£©
+	 * å®šå‘æ»‘åŠ¨ï¼ˆæœ«ç«¯å‡é€Ÿï¼‰
 	 * @see Slider
-	 * @param c ²Ù×÷¶ÔÏó
-	 * @param direction »¬¶¯·½Ïò TOP|LEFT|BOTTOM|RIGHT
-	 * @param px »¬¶¯¾àÀë
-	 * @param time »¬¶¯Ê±¼ä£¨Î¢Ãë£©
-	 * @param activity ÈÎÎñ£¨¾ßÌå²Î¼ûÀà×¢ÊÍ£©
-	 * @param break_percent Ä©¶Ë¼õËÙµÄ¾àÀë£¨ÒÔĞ¡Êı±íÊ¾°Ù·Ö±È[0.0f,1.0f]£©
-	 * @param fSpeed_percent Ä©¶Ë¼õËÙµÄ×îÖÕËÙ¶È£¨ÒÔĞ¡Êı±íÊ¾°Ù·Ö±È(0.0f,1.0f]£©
-	 * @return ÔÚactivityÎªRETURNÊ±·µ»ØSlider¶ÔÏó
+	 * @param c æ“ä½œå¯¹è±¡
+	 * @param direction æ»‘åŠ¨æ–¹å‘ TOP|LEFT|BOTTOM|RIGHT
+	 * @param px æ»‘åŠ¨è·ç¦»
+	 * @param time æ»‘åŠ¨æ—¶é—´ï¼ˆå¾®ç§’ï¼‰
+	 * @param activity ä»»åŠ¡ï¼ˆå…·ä½“å‚è§ç±»æ³¨é‡Šï¼‰
+	 * @param break_percent æœ«ç«¯å‡é€Ÿçš„è·ç¦»ï¼ˆä»¥å°æ•°è¡¨ç¤ºç™¾åˆ†æ¯”[0.0f,1.0f]ï¼‰
+	 * @param fSpeed_percent æœ«ç«¯å‡é€Ÿçš„æœ€ç»ˆé€Ÿåº¦ï¼ˆä»¥å°æ•°è¡¨ç¤ºç™¾åˆ†æ¯”(0.0f,1.0f]ï¼‰
+	 * @return åœ¨activityä¸ºRETURNæ—¶è¿”å›Sliderå¯¹è±¡
 	 */
 	public static Slider d_break(Component c,int direction,int px,int time,int activity,float break_percent,float fSpeed_percent){
 		Slider slide=direct(c,direction,px,time,RETURN);
 		return breakDeal(slide,activity,break_percent,fSpeed_percent);
 	}
 	/**
-	 * ¹ØÁª»¬¶¯£¨ÎŞ¼õËÙ£©
+	 * å…³è”æ»‘åŠ¨ï¼ˆæ— å‡é€Ÿï¼‰
 	 * @see Slider
-	 * @param relative Ïà¶ÔµÄ×é¼ş
-	 * @param c ²Ù×÷¶ÔÏó
-	 * @param direction »¬¶¯·½Ïò
-	 * @param time »¬¶¯Ê±¼ä£¨Î¢Ãë£©
-	 * @param autoLocate ¸ù¾İÏà¶ÔµÄ×Ô¶¯¶¨Î»
-	 * @param activity ÈÎÎñ£¨¾ßÌå²Î¼ûÀà×¢ÊÍ£©
-	 * @return ÔÚactivityÎªRETURNÊ±·µ»ØSlider¶ÔÏó
+	 * @param relative ç›¸å¯¹çš„ç»„ä»¶
+	 * @param c æ“ä½œå¯¹è±¡
+	 * @param direction æ»‘åŠ¨æ–¹å‘
+	 * @param time æ»‘åŠ¨æ—¶é—´ï¼ˆå¾®ç§’ï¼‰
+	 * @param autoLocate æ ¹æ®ç›¸å¯¹çš„è‡ªåŠ¨å®šä½
+	 * @param activity ä»»åŠ¡ï¼ˆå…·ä½“å‚è§ç±»æ³¨é‡Šï¼‰
+	 * @return åœ¨activityä¸ºRETURNæ—¶è¿”å›Sliderå¯¹è±¡
 	 */
 	public static Slider relat(Component relative,Component c,int direction,int time,boolean autoLocate,int activity){
 		Point finish=getFinish_autoLoacte(relative, c, direction, autoLocate);
 		return deal(activity,relative,c,finish,time,time);
 	}
 	/**
-	 * ¹ØÁª»¬¶¯£¨Ä©¶Ë¼õËÙ£©
+	 * å…³è”æ»‘åŠ¨ï¼ˆæœ«ç«¯å‡é€Ÿï¼‰
 	 * @see Slider
-	 * @param relative ¹ØÁªµÄ×é¼ş
-	 * @param c ²Ù×÷¶ÔÏó
-	 * @param direction »¬¶¯·½Ïò
-	 * @param time »¬¶¯Ê±¼ä£¨Î¢Ãë£©
-	 * @param autoLocate ¸ù¾İ¹ØÁª×é¼ş×Ô¶¯¶¨Î»
-	 * @param activity ÈÎÎñ£¨¾ßÌå²Î¼ûÀà×¢ÊÍ£©
-	 * @param break_percent Ä©¶Ë¼õËÙµÄ¾àÀë£¨ÒÔĞ¡Êı±íÊ¾°Ù·Ö±È[0.0f,1.0f]£©
-	 * @param fSpeed_percent Ä©¶Ë¼õËÙµÄ×îÖÕËÙ¶È£¨ÒÔĞ¡Êı±íÊ¾°Ù·Ö±È(0.0f,1.0f]£©
-	 * @return ÔÚactivityÎªRETURNÊ±·µ»ØSlider¶ÔÏó
+	 * @param relative å…³è”çš„ç»„ä»¶
+	 * @param c æ“ä½œå¯¹è±¡
+	 * @param direction æ»‘åŠ¨æ–¹å‘
+	 * @param time æ»‘åŠ¨æ—¶é—´ï¼ˆå¾®ç§’ï¼‰
+	 * @param autoLocate æ ¹æ®å…³è”ç»„ä»¶è‡ªåŠ¨å®šä½
+	 * @param activity ä»»åŠ¡ï¼ˆå…·ä½“å‚è§ç±»æ³¨é‡Šï¼‰
+	 * @param break_percent æœ«ç«¯å‡é€Ÿçš„è·ç¦»ï¼ˆä»¥å°æ•°è¡¨ç¤ºç™¾åˆ†æ¯”[0.0f,1.0f]ï¼‰
+	 * @param fSpeed_percent æœ«ç«¯å‡é€Ÿçš„æœ€ç»ˆé€Ÿåº¦ï¼ˆä»¥å°æ•°è¡¨ç¤ºç™¾åˆ†æ¯”(0.0f,1.0f]ï¼‰
+	 * @return åœ¨activityä¸ºRETURNæ—¶è¿”å›Sliderå¯¹è±¡
 	 */
 	public static Slider r_break(Component relative,Component c,int direction,int time,boolean autoLocate,int activity,float break_percent,float fSpeed_percent){
 		Slider slide=relat(relative,c,direction,time,autoLocate,RETURN);
 		return breakDeal(slide,activity,break_percent,fSpeed_percent);
 	}
-	// ÆÕÍ¨ÇëÇó´¦Àí
+	// æ™®é€šè¯·æ±‚å¤„ç†
 	private static Slider deal(int activity,Component relative,Component c,Point finish,int xTime,int yTime){
 		Slider slider=new Slider(activity,relative,c,finish,xTime,yTime);
 		if(activity==RETURN)
 			return slider;
 		return null;
 	}
-	// ÇëÇó½øÒ»²½´¦Àí¡ª¡ªÊµÏÖÄ©¶Ë¼õËÙ
+	// è¯·æ±‚è¿›ä¸€æ­¥å¤„ç†â€•â€•å®ç°æœ«ç«¯å‡é€Ÿ
 	private static Slider breakDeal(Slider slide,int activity,float break_percent,float fSpeed_percent){
 		slide.setBreak(break_percent, fSpeed_percent);
 		if(activity==RETURN)
@@ -160,12 +160,12 @@ public class Slider {
 		slide.branch(activity);
 		return null;
 	}
-	// ¸ù¾İÆğÊ¼µã»ñÈ¡Ë«ÏòµÄËÙ¶È£¨Ã¿intervalÇ°½øpx£©
+	// æ ¹æ®èµ·å§‹ç‚¹è·å–åŒå‘çš„é€Ÿåº¦ï¼ˆæ¯intervalå‰è¿›pxï¼‰
 	private void getSpeed(int xTime,int yTime){
 		xSpeed=Math.abs((float)(finish.x-start.x)/(xTime/intervals));
 		ySpeed=Math.abs((float)(finish.y-start.y)/(yTime/intervals));
 	}
-	// ¶¨Ïò»¬¶¯»ñÈ¡ÖÕµã
+	// å®šå‘æ»‘åŠ¨è·å–ç»ˆç‚¹
 	private static Point getFinish(Component c,int direction,int px){
 		int X=c.getX(),Y=c.getY();
 		if(direction==LEFT)
@@ -178,7 +178,7 @@ public class Slider {
 			return new Point(X,Y+px);
 		return new Point(0,0);
 	}
-	// ¹ØÁª»¬¶¯»ñÈ¡ÖÕµã¡£×Ô¶¯¶¨Î»
+	// å…³è”æ»‘åŠ¨è·å–ç»ˆç‚¹ã€‚è‡ªåŠ¨å®šä½
 	private static Point getFinish_autoLoacte(Component relative,Component c,int direction,boolean autoLocate){
 		Point p=new Point(0,0);
 		int X=relative.getX(),Y=relative.getY(),W=relative.getWidth(),H=relative.getHeight(),cW=c.getWidth(),cH=c.getHeight();
@@ -188,7 +188,7 @@ public class Slider {
 			System.out.println(preferred);
 			W=preferred.width;
 			H=preferred.height;
-			// TODO ĞŞ¸Äµã£ºÈô¹ØÁª¶ÔÏó³¤¿íÎª0£¬Ôò¿¼ÂÇÆäÊ¹ÓÃÁËÏà¶Ô´óĞ¡¡£¹ØÁª»¬¶¯Ôö¼ÓÄÚ²¿Íâ²¿Çø·Ö¡£
+			// TODO ä¿®æ”¹ç‚¹ï¼šè‹¥å…³è”å¯¹è±¡é•¿å®½ä¸º0ï¼Œåˆ™è€ƒè™‘å…¶ä½¿ç”¨äº†ç›¸å¯¹å¤§å°ã€‚å…³è”æ»‘åŠ¨å¢åŠ å†…éƒ¨å¤–éƒ¨åŒºåˆ†ã€‚
 		}
 		if(direction==LEFT){
 			if(autoLocate)
@@ -213,8 +213,8 @@ public class Slider {
 		return p;
 	}
 	/**
-	 * Ìí¼Ó¼àÌı
-	 * @param listenType ¼àÌıÀàĞÍ LISTEN_MouseEnter¡¢LISTEN_MousePress
+	 * æ·»åŠ ç›‘å¬
+	 * @param listenType ç›‘å¬ç±»å‹ LISTEN_MouseEnterã€LISTEN_MousePress
 	 */
 	public void addListen(int listenType){
 		if(listenType==LISTEN_MouseEnter){
@@ -267,9 +267,9 @@ public class Slider {
 		}
 	}
 	/**
-	 * Ìí¼ÓÄ©¶Ë¼õËÙ
-	 * @param break_percent Ä©¶Ë¼õËÙ¼õËÙ¾àÀë£¨ÒÔĞ¡Êı±íÊ¾°Ù·Ö±È£©
-	 * @param fSpeed_percent Ä©¶Ë¼õËÙ×îÖÕËÙ¶È£¨ÒÔĞ¡Êı±íÊ¾°Ù·Ö±È£©
+	 * æ·»åŠ æœ«ç«¯å‡é€Ÿ
+	 * @param break_percent æœ«ç«¯å‡é€Ÿå‡é€Ÿè·ç¦»ï¼ˆä»¥å°æ•°è¡¨ç¤ºç™¾åˆ†æ¯”ï¼‰
+	 * @param fSpeed_percent æœ«ç«¯å‡é€Ÿæœ€ç»ˆé€Ÿåº¦ï¼ˆä»¥å°æ•°è¡¨ç¤ºç™¾åˆ†æ¯”ï¼‰
 	 */
 	public void setBreak(float break_percent,float fSpeed_percent){
 		breakX=Math.abs(((finish.x-start.x)*break_percent));
@@ -288,14 +288,14 @@ public class Slider {
 		on=false;
 	}
 	/**
-	 * ¼ÌĞøÕıÏòÖ´ĞĞ
+	 * ç»§ç»­æ­£å‘æ‰§è¡Œ
 	 */
 	public void goOn(){
 		Going=true;
 		start(c.getLocation(),finish);
 	}
 	/**
-	 * ¼ÌĞø·´ÏòÖ´ĞĞ
+	 * ç»§ç»­åå‘æ‰§è¡Œ
 	 */
 	public void goBack(){
 		Going=false;
@@ -303,9 +303,9 @@ public class Slider {
 	}
 	
 	/**
-	 * Ïß³Ì
-	 * @param start ÆğÊ¼µã
-	 * @param finish ÖÕµã
+	 * çº¿ç¨‹
+	 * @param start èµ·å§‹ç‚¹
+	 * @param finish ç»ˆç‚¹
 	 */
 	private void doSlide(final Point start,final Point finish){
 		new Thread(()-> { 
@@ -354,7 +354,7 @@ public class Slider {
 			}
 		}).start();
 	};
-	// Ä©¶Ë¼õËÙ
+	// æœ«ç«¯å‡é€Ÿ
 	private float present(float distence,boolean isX){
 		float speed = 0;
 		if(isX)
@@ -384,7 +384,7 @@ public class Slider {
 	public Point getFinish() {
 		return finish;
 	}
-	// ÖØÖÃ»¬¶¯µÄ½áÎ²£¬ÒÔÏÂ·½·¨Ó¦¶ÔÓĞÎ»ÖÃ±ä¸üµÄ×é¼ş
+	// é‡ç½®æ»‘åŠ¨çš„ç»“å°¾ï¼Œä»¥ä¸‹æ–¹æ³•åº”å¯¹æœ‰ä½ç½®å˜æ›´çš„ç»„ä»¶
 	public void setFinish(int direction,boolean autoLocate) {
 		finish = getFinish_autoLoacte(relative, c, direction, autoLocate);
 	}

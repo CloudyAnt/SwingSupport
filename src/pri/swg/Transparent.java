@@ -15,8 +15,8 @@ import javax.swing.JFrame;
 
 /**
  * 
- * Í¸Ã÷´°Ìå
- * @author ²ñ¼Òç÷
+ * é€æ˜çª—ä½“
+ * @author æŸ´å®¶çª
  *
  */
 @SuppressWarnings("serial")
@@ -45,7 +45,7 @@ public class Transparent extends JFrame{
 		robot = null;
 		try {
 			robot=new Robot();
-//			Toolkit tk=Toolkit.getDefaultToolkit();£¬
+//			Toolkit tk=Toolkit.getDefaultToolkit();ï¼Œ
 //			Dimension d=tk.getScreenSize();
 			background=robot.createScreenCapture(new Rectangle(200, 200, 500, 500));
 		} catch (AWTException e) {
