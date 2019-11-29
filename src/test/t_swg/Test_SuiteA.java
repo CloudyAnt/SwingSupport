@@ -10,25 +10,29 @@ import pri.swg.Dragger;
 import pri.swg.FadeFrame;
 import pri.swg.Fader;
 import pri.swg.Slider;
+
 /**
  * SuiteA测试COperator、FadeFrame、Slider、Dragger
+ * 
  * @author 柴晓
  *
  */
-public class Test_SuiteA extends FadeFrame{
+public class Test_SuiteA extends FadeFrame {
 	private static final long serialVersionUID = 1L;
-	private Test_SuiteA(){
+
+	private Test_SuiteA() {
 		setBounds(300, 300, 300, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridLayout(1, 1));
-		JPanel jp=new JPanel();
-		add(jp);
-		Fader.fade(jp, Fader.BACK_GROUND, 1000,Fader.LISTEN_MouseEnter,new Color(0,255,0));
-		Slider.d_break(jp, Slider.RIGHT, 200, 300, Slider.LISTEN_MouseEnter, 1f, 0.1f);
+		JPanel panel = new JPanel();
+		add(panel);
+		Fader.fade(panel, Fader.BACK_GROUND, 1000, Fader.LISTEN_MouseEnter, new Color(0, 255, 0));
+		Slider.d_break(panel, Slider.RIGHT, 200, 300, Slider.LISTEN_MouseEnter, 1f, 0.1f);
 		setVisible(true);
-		Dragger.drag(this, jp);
+		Dragger.drag(this, panel);
 	}
-	public static void main(String args[]){
+
+	public static void main(String args[]) {
 		new Test_SuiteA();
 	}
 }

@@ -6,17 +6,17 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * 拖曳控制类<hr> Drag Control
+ * 拖曳控制类
+ * <hr>
+ * Drag Control
  *
  * @author 柴晓
  * @version 1.1 17/03/23 原来的基础上增加了横向与纵向拖动效果
  */
-//监听相克：同种监听中的方法是相克的，即监听到另一种活动会立刻终止监听当前活动
+// 监听相克：同种监听中的方法是相克的，即监听到另一种活动会立刻终止监听当前活动
 public class Dragger {
     /*
-     * cStart 	组件起始位置
-     * mPre		鼠标当前位置
-     * mStart	鼠标按下位置
+     * cStart 组件起始位置 mPre 鼠标当前位置 mStart 鼠标按下位置
      */
     private Point cStart, mPre, mStart;
     public static final int Horizontal = 2, Vertical = 3;
@@ -128,9 +128,11 @@ public class Dragger {
 
     /**
      *
-     * Let component <i>c</i> draggable. Direction is limited by <i>direction</i>, range is limited by <i>left</i> & <i>right</i>.
-     * Drags listened by Component <i>listen</i>
-     * @param left is top when <i>direction</i> is Vertical
+     * Let component <i>c</i> draggable. Direction is limited by <i>direction</i>,
+     * range is limited by <i>left</i> & <i>right</i>. Drags listened by Component
+     * <i>listen</i>
+     * 
+     * @param left  is top when <i>direction</i> is Vertical
      * @param right is bottom when <i>direction</i> is Vertical
      *
      */
@@ -139,22 +141,24 @@ public class Dragger {
     }
 
     /**
-     * Let component <i>c</i> draggable. Direction is limited by field <i>direction</i>. Drags listened by Component <i>listen</i>
+     * Let component <i>c</i> draggable. Direction is limited by field
+     * <i>direction</i>. Drags listened by Component <i>listen</i>
      */
     public static void oneDirectionDrag(Component c, Component listen, int direction) {
         new Dragger(c, listen, direction);
     }
 
     /**
-     * Let component <i>c</i> draggable. Range is limited by <i>leftTop</i> & <i>rightBottom</i>.
-     * Drags listened by Component <i>listen</i>
+     * Let component <i>c</i> draggable. Range is limited by <i>leftTop</i> &
+     * <i>rightBottom</i>. Drags listened by Component <i>listen</i>
      */
     public static void drag(Component c, Component listen, Point leftTop, Point rightBottom) {
-        new Dragger(c, listen, leftTop, rightBottom);//使用对象因为有需要使用的全局常量
+        new Dragger(c, listen, leftTop, rightBottom);// 使用对象因为有需要使用的全局常量
     }
 
     /**
-     * Let component <i>c</i> draggable with no limits. Drags listened by Component <i>listen</i>
+     * Let component <i>c</i> draggable with no limits. Drags listened by Component
+     * <i>listen</i>
      */
     public static void drag(Component c, Component listen) {
         new Dragger(c, listen, BOTH);
