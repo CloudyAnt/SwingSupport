@@ -26,8 +26,10 @@ public class Test_SuiteA extends FadeFrame {
 		setLayout(new GridLayout(1, 1));
 		JPanel panel = new JPanel();
 		add(panel);
+
 		Fader.fade(panel, Fader.BACK_GROUND, 1000, Fader.LISTEN_MouseEnter, new Color(0, 255, 0));
-		Slider.d_break(panel, Slider.RIGHT, 200, 300, Slider.LISTEN_MouseEnter, 1f, 0.1f);
+		Slider.d_brake(panel, Slider.RIGHT, 200, 300, Slider.LISTEN_MouseEnter, 1f, 0.1f);
+
 		setVisible(true);
 		Dragger.drag(this, panel);
 	}

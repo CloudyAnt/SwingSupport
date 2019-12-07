@@ -9,8 +9,8 @@ import java.awt.event.MouseEvent;
 /**
  * Swing组件滑动控制类
  * <hr>
- * <h1>3个无末端减速静态方法</h1> slide(定点),direct(定向定长),relat(关联)。<br>
- * <h1>3个有末端减速静态方法:</h1> s_break,d_break,r_break。对应以上3个方法，并根据指定参数末端减速。
+ * <h1>3个无末端减速静态方法</h1> slide(定点),direct(定向定长),relate(关联)。<br>
+ * <h1>3个有末端减速静态方法:</h1> s_brake,d_brake,r_brake。对应以上3个方法，并根据指定参数末端减速。
  * <h1>每个静态方法中都有activity参数，对应操作:</h1>
  * <li>NULL:――立刻执行，无特殊操作</li>
  * <li>NULL_BACK:――立刻执行，并返回原点</li>
@@ -32,10 +32,10 @@ public class Slider {
 			LISTEN_MouseEnter = 8, LISTEN_MousePress = 9;
 	private Component relative, c;
 	private Point start, finish;
-	private float xSpeed, ySpeed, xBreakLevel = 1, yBreakLevel = 1, breakX = 0, breakY = 0;
+	private float xSpeed, ySpeed, xBrakeLevel = 1, yBrakeLevel = 1, xBrake = 0, yBrake = 0;
 	private int intervals = 10, times = 0;
 	// on 启动 needback 一次性执行并返回 Going 正向执行 inRelative 鼠标在关联组件中 inCom在执行组件中
-	private boolean on = true, needBack = false, Going = false, inRelative = false, inCom = false;
+	private boolean goOn = true, needBack = false, Going = false, inRelative = false, inCom = false;
 
 	// 分支――执行指定activity
 	private void branch(int branch) {
@@ -82,14 +82,14 @@ public class Slider {
 	 * @param xTime          横向用时（微秒）
 	 * @param yTime          纵向用时（微秒）
 	 * @param activity       任务（具体参见类注释）
-	 * @param break_percent  末端减速的距离（以小数表示百分比[0.0f,1.0f]）
+	 * @param brake_percent  末端减速的距离（以小数表示百分比[0.0f,1.0f]）
 	 * @param fSpeed_percent 末端减速的最终速度（以小数表示百分比(0.0f,1.0f]）
 	 * @return 在activity为RETURN时返回Slider对象
 	 */
-	public static Slider s_break(Component c, Point finish, int xTime, int yTime, int activity, float break_percent,
-			float fSpeed_percent) {
+	public static Slider s_brake(Component c, Point finish, int xTime, int yTime, int activity, float brake_percent,
+								 float fSpeed_percent) {
 		Slider slide = slide(c, finish, xTime, yTime, RETURN);
-		return breakDeal(slide, activity, break_percent, fSpeed_percent);
+		return brakeDeal(slide, activity, brake_percent, fSpeed_percent);
 	}
 
 	/**
@@ -117,14 +117,14 @@ public class Slider {
 	 * @param px             滑动距离
 	 * @param time           滑动时间（微秒）
 	 * @param activity       任务（具体参见类注释）
-	 * @param break_percent  末端减速的距离（以小数表示百分比[0.0f,1.0f]）
+	 * @param brake_percent  末端减速的距离（以小数表示百分比[0.0f,1.0f]）
 	 * @param fSpeed_percent 末端减速的最终速度（以小数表示百分比(0.0f,1.0f]）
 	 * @return 在activity为RETURN时返回Slider对象
 	 */
-	public static Slider d_break(Component c, int direction, int px, int time, int activity, float break_percent,
-			float fSpeed_percent) {
+	public static Slider d_brake(Component c, int direction, int px, int time, int activity, float brake_percent,
+								 float fSpeed_percent) {
 		Slider slide = direct(c, direction, px, time, RETURN);
-		return breakDeal(slide, activity, break_percent, fSpeed_percent);
+		return brakeDeal(slide, activity, brake_percent, fSpeed_percent);
 	}
 
 	/**
@@ -139,9 +139,9 @@ public class Slider {
 	 * @param activity   任务（具体参见类注释）
 	 * @return 在activity为RETURN时返回Slider对象
 	 */
-	public static Slider relat(Component relative, Component c, int direction, int time, boolean autoLocate,
-			int activity) {
-		Point finish = getFinish_autoLoacte(relative, c, direction, autoLocate);
+	public static Slider relate(Component relative, Component c, int direction, int time, boolean autoLocate,
+								int activity) {
+		Point finish = getAutoLocativeFinishingPoint(relative, c, direction, autoLocate);
 		return deal(activity, relative, c, finish, time, time);
 	}
 
@@ -155,14 +155,14 @@ public class Slider {
 	 * @param time           滑动时间（微秒）
 	 * @param autoLocate     根据关联组件自动定位
 	 * @param activity       任务（具体参见类注释）
-	 * @param break_percent  末端减速的距离（以小数表示百分比[0.0f,1.0f]）
+	 * @param brake_percent  末端减速的距离（以小数表示百分比[0.0f,1.0f]）
 	 * @param fSpeed_percent 末端减速的最终速度（以小数表示百分比(0.0f,1.0f]）
 	 * @return 在activity为RETURN时返回Slider对象
 	 */
-	public static Slider r_break(Component relative, Component c, int direction, int time, boolean autoLocate,
-			int activity, float break_percent, float fSpeed_percent) {
-		Slider slide = relat(relative, c, direction, time, autoLocate, RETURN);
-		return breakDeal(slide, activity, break_percent, fSpeed_percent);
+	public static Slider r_brake(Component relative, Component c, int direction, int time, boolean autoLocate,
+			int activity, float brake_percent, float fSpeed_percent) {
+		Slider slide = relate(relative, c, direction, time, autoLocate, RETURN);
+		return brakeDeal(slide, activity, brake_percent, fSpeed_percent);
 	}
 
 	// 普通请求处理
@@ -174,8 +174,8 @@ public class Slider {
 	}
 
 	// 请求进一步处理――实现末端减速
-	private static Slider breakDeal(Slider slide, int activity, float break_percent, float fSpeed_percent) {
-		slide.setBreak(break_percent, fSpeed_percent);
+	private static Slider brakeDeal(Slider slide, int activity, float brake_percent, float fSpeed_percent) {
+		slide.setBrake(brake_percent, fSpeed_percent);
 		if (activity == RETURN)
 			return slide;
 		slide.branch(activity);
@@ -203,7 +203,7 @@ public class Slider {
 	}
 
 	// 关联滑动获取终点。自动定位
-	private static Point getFinish_autoLoacte(Component relative, Component c, int direction, boolean autoLocate) {
+	private static Point getAutoLocativeFinishingPoint(Component relative, Component c, int direction, boolean autoLocate) {
 		Point p = new Point(0, 0);
 		int X = relative.getX(), Y = relative.getY(), W = relative.getWidth(), H = relative.getHeight(),
 				cW = c.getWidth(), cH = c.getHeight();
@@ -297,14 +297,14 @@ public class Slider {
 	/**
 	 * 添加末端减速
 	 * 
-	 * @param break_percent  末端减速减速距离（以小数表示百分比）
+	 * @param brake_percent  末端减速减速距离（以小数表示百分比）
 	 * @param fSpeed_percent 末端减速最终速度（以小数表示百分比）
 	 */
-	public void setBreak(float break_percent, float fSpeed_percent) {
-		breakX = Math.abs(((finish.x - start.x) * break_percent));
-		breakY = Math.abs(((finish.y - start.y) * break_percent));
-		xBreakLevel = 1 / fSpeed_percent;
-		yBreakLevel = 1 / fSpeed_percent;
+	public void setBrake(float brake_percent, float fSpeed_percent) {
+		xBrake = Math.abs(((finish.x - start.x) * brake_percent));
+		yBrake = Math.abs(((finish.y - start.y) * brake_percent));
+		xBrakeLevel = 1 / fSpeed_percent;
+		yBrakeLevel = 1 / fSpeed_percent;
 	}
 
 	public void start() {
@@ -317,7 +317,7 @@ public class Slider {
 	}
 
 	public void stop() {
-		on = false;
+		goOn = false;
 	}
 
 	/**
@@ -349,36 +349,40 @@ public class Slider {
 			int yDir = start.y <= finish.y ? 1 : -1;
 			float[] present = { start.x, start.y };
 
-			on = true;
-			boolean xFinish = false, yFinish = false;
-			while (on && time == times) {
+			goOn = true;
+			boolean xFinished = false, yFinished = false;
+
+			while (goOn && time == times) {
+				// Sleep
 				try {
 					Thread.sleep(intervals);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				if (xFinish && yFinish) {
-
-					on = false;
+				// Set next location
+				if (xFinished && yFinished) {
+					goOn = false;
 					c.setLocation(finish);
 				} else {
 					c.setLocation((int) present[0], (int) present[1]);
-					if (!xFinish) {
-						float distence = Math.abs(finish.x - present[0]);
-						if (distence >= breakX)
+					// Calculate next x
+					if (!xFinished) {
+						float distance = Math.abs(finish.x - present[0]);
+						if (distance >= xBrake)
 							present[0] += xSpeed * xDir;
 						else
-							present[0] += present(distence, true) * xDir;
-						xFinish = xDir == 1 ? present[0] >= finish.x : present[0] <= finish.x;
+							present[0] += present(distance, true) * xDir;
+						xFinished = xDir == 1 ? present[0] >= finish.x : present[0] <= finish.x;
 					}
-					if (!yFinish) {
+					// Calculate next y
+					if (!yFinished) {
 						present[1] += ySpeed * yDir;
-						float distence = Math.abs(finish.y - present[1]);
-						if (distence >= breakY)
+						float distance = Math.abs(finish.y - present[1]);
+						if (distance >= yBrake)
 							present[1] += ySpeed * yDir;
 						else
-							present[1] += present(distence, false) * yDir;
-						yFinish = yDir == 1 ? present[1] >= finish.y : present[1] <= finish.y;
+							present[1] += present(distance, false) * yDir;
+						yFinished = yDir == 1 ? present[1] >= finish.y : present[1] <= finish.y;
 					}
 				}
 			}
@@ -390,12 +394,12 @@ public class Slider {
 	};
 
 	// 末端减速
-	private float present(float distence, boolean isX) {
-		float speed = 0;
+	private float present(float distance, boolean isX) {
+		float speed;
 		if (isX)
-			speed = ((xBreakLevel - 1) * xSpeed * distence) / (xBreakLevel * breakX) + xSpeed / xBreakLevel;
+			speed = ((xBrakeLevel - 1) * xSpeed * distance) / (xBrakeLevel * xBrake) + xSpeed / xBrakeLevel;
 		else
-			speed = ((yBreakLevel - 1) * ySpeed * distence) / (yBreakLevel * breakY) + ySpeed / yBreakLevel;
+			speed = ((yBrakeLevel - 1) * ySpeed * distance) / (yBrakeLevel * yBrake) + ySpeed / yBrakeLevel;
 		return speed;
 	}
 
@@ -429,7 +433,7 @@ public class Slider {
 
 	// 重置滑动的结尾，以下方法应对有位置变更的组件
 	public void setFinish(int direction, boolean autoLocate) {
-		finish = getFinish_autoLoacte(relative, c, direction, autoLocate);
+		finish = getAutoLocativeFinishingPoint(relative, c, direction, autoLocate);
 	}
 
 	public void setFinish(int direction, int px) {
