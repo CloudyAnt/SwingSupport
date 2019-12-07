@@ -9,6 +9,11 @@ public class NewTransparent extends JFrame {
         Dragger.drag(this);
         setUndecorated(true);
         setBackground(new Color(1.0f,1.0f,1.0f,0.5f));
+        setLayout(null);
+
+        JButton jButton = new JButton();
+        jButton.setBounds(200, 200, 100, 100);
+        add(jButton);
 
         setVisible(true);
     }

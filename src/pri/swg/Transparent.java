@@ -35,7 +35,6 @@ public class Transparent extends JFrame {
 
     public Transparent() {
         thisone = this;
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(200, 200, 500, 500);
         Dragger.drag(thisone);
         setUndecorated(true);
