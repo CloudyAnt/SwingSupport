@@ -3,6 +3,7 @@ package pri.swg;
 import javax.swing.*;
 import java.awt.*;
 
+//ToDo In Test
 public class NewTransparent extends JFrame {
     public NewTransparent() {
         setBounds(200, 200, 500, 500);

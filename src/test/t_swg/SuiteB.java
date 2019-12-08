@@ -17,11 +17,11 @@ import pri.swg.img.Imager;
  * @author 柴晓
  *
  */
-public class Test_SuiteB extends JFrame {
+public class SuiteB extends JFrame {
 	Imager painter;
 	private static final long serialVersionUID = 1L;
 
-	Test_SuiteB() {
+	SuiteB() {
 		setBounds(100, 50, 1000, 700);
 		setLayout(null);
 		this.getContentPane().setBackground(Color.lightGray);
@@ -48,6 +48,6 @@ public class Test_SuiteB extends JFrame {
 	}
 
 	public static void main(String args[]) {
-		new Test_SuiteB();
+		new SuiteB();
 	}
 }

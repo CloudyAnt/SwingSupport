@@ -6,13 +6,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import pri.swg.FadeFrame;
-
 @SuppressWarnings("serial")
-public class Test_FadeFrame extends FadeFrame {
-	Test_FadeFrame tf;
+public class FadeFrame extends pri.swg.FadeFrame {
+	FadeFrame tf;
 
-	public Test_FadeFrame() {
+	public FadeFrame() {
 		tf = this;
 		set(0.2f, 1, 300, true, true);
 		setBounds(200, 200, 400, 400);
@@ -34,6 +32,6 @@ public class Test_FadeFrame extends FadeFrame {
 	}
 
 	public static void main(String args[]) {
-		new Test_FadeFrame();
+		new FadeFrame();
 	}
 }

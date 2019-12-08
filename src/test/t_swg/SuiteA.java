@@ -17,10 +17,10 @@ import pri.swg.Slider;
  * @author 柴晓
  *
  */
-public class Test_SuiteA extends FadeFrame {
+public class SuiteA extends FadeFrame {
 	private static final long serialVersionUID = 1L;
 
-	private Test_SuiteA() {
+	private SuiteA() {
 		setBounds(300, 300, 300, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridLayout(1, 1));
@@ -35,6 +35,6 @@ public class Test_SuiteA extends FadeFrame {
 	}
 
 	public static void main(String args[]) {
-		new Test_SuiteA();
+		new SuiteA();
 	}
 }
