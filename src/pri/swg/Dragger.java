@@ -18,15 +18,14 @@ public class Dragger {
     /*
      * cStart 组件起始位置 mPre 鼠标当前位置 mStart 鼠标按下位置
      */
-    private Point cStart, mPre, mStart;
+    private Point cStart, mPresent, mStart;
     public static final int Horizontal = 2, Vertical = 3;
     private static final int BOTH = 1;
 
     /**
      * Scope limited drag
      */
-    private Dragger(Component c, Component listen, Point leftTop, Point rightBottom) {
-        // todo add points validations
+    private Dragger(Component c, Component listen, Point limitStart, Point limitEnd) {
         listen.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
                 cStart = c.getLocation();
@@ -37,28 +36,29 @@ public class Dragger {
             int xa = -1, xb = 10000, ya = -1, yb = 10000;
 
             {
-                if (leftTop != null && rightBottom != null) {
-                    if (leftTop.x < rightBottom.x) {
-                        xa = leftTop.x;
-                        xb = rightBottom.x;
+                if (limitStart != null && limitEnd != null) {
+                    if (limitStart.x < limitEnd.x) {
+                        xa = limitStart.x;
+                        xb = limitEnd.x;
                     } else {
-                        xa = rightBottom.x;
-                        xb = leftTop.x;
+                        xa = limitEnd.x;
+                        xb = limitStart.x;
                     }
-                    if (leftTop.y < rightBottom.y) {
-                        ya = leftTop.y;
-                        yb = rightBottom.y;
+                    if (limitStart.y < limitEnd.y) {
+                        ya = limitStart.y;
+                        yb = limitEnd.y;
                     } else {
-                        ya = rightBottom.y;
-                        yb = leftTop.y;
+                        ya = limitEnd.y;
+                        yb = limitStart.y;
                     }
                 }
             }
 
             public void mouseDragged(MouseEvent e) {
-                mPre = e.getLocationOnScreen();
-                int x = mPre.x - mStart.x + cStart.x, y = mPre.y - mStart.y + cStart.y;
-                c.setLocation(new Point(x < xa ? xa : x > xb ? xb : x, y < ya ? ya : y > yb ? yb : y));
+                mPresent = e.getLocationOnScreen();
+                int x = mPresent.x - mStart.x + cStart.x, y = mPresent.y - mStart.y + cStart.y;
+                c.setLocation(new Point(x < xa ? xa : Math.min(x, xb), y < ya ? ya : Math.min(y, yb)));
+                c.setLocation(mPresent);
             }
         });
     }
@@ -78,17 +78,17 @@ public class Dragger {
         if (direction == Horizontal)
             listen.addMouseMotionListener(new MouseAdapter() {
                 public void mouseDragged(MouseEvent e) {
-                    mPre = e.getLocationOnScreen();
-                    int x = mPre.x - mStart.x + cStart.x;
-                    c.setLocation(new Point(x = x < a ? a : x > b ? b : x, cStart.y));
+                    mPresent = e.getLocationOnScreen();
+                    int x = mPresent.x - mStart.x + cStart.x;
+                    c.setLocation(new Point(x < a ? a : Math.min(x, b), cStart.y));
                 }
             });
         else if (direction == Vertical)
             listen.addMouseMotionListener(new MouseAdapter() {
                 public void mouseDragged(MouseEvent e) {
-                    mPre = e.getLocationOnScreen();
-                    int y = mPre.y - mStart.y + cStart.y;
-                    c.setLocation(new Point(cStart.x, y < a ? a : y > b ? b : y));
+                    mPresent = e.getLocationOnScreen();
+                    int y = mPresent.y - mStart.y + cStart.y;
+                    c.setLocation(new Point(cStart.x, y < a ? a : Math.min(y, b)));
                 }
             });
     }
@@ -106,22 +106,22 @@ public class Dragger {
         if (type == BOTH)
             listen.addMouseMotionListener(new MouseAdapter() {
                 public void mouseDragged(MouseEvent e) {
-                    mPre = e.getLocationOnScreen();
-                    c.setLocation(new Point(mPre.x - mStart.x + cStart.x, mPre.y - mStart.y + cStart.y));
+                    mPresent = e.getLocationOnScreen();
+                    c.setLocation(new Point(mPresent.x - mStart.x + cStart.x, mPresent.y - mStart.y + cStart.y));
                 }
             });
         else if (type == Horizontal)
             listen.addMouseMotionListener(new MouseAdapter() {
                 public void mouseDragged(MouseEvent e) {
-                    mPre = e.getLocationOnScreen();
-                    c.setLocation(new Point(mPre.x - mStart.x + cStart.x, cStart.y));
+                    mPresent = e.getLocationOnScreen();
+                    c.setLocation(new Point(mPresent.x - mStart.x + cStart.x, cStart.y));
                 }
             });
         else if (type == Vertical)
             listen.addMouseMotionListener(new MouseAdapter() {
                 public void mouseDragged(MouseEvent e) {
-                    mPre = e.getLocationOnScreen();
-                    c.setLocation(new Point(cStart.x, mPre.y - mStart.y + cStart.y));
+                    mPresent = e.getLocationOnScreen();
+                    c.setLocation(new Point(cStart.x, mPresent.y - mStart.y + cStart.y));
                 }
             });
     }

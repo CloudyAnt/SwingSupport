@@ -18,10 +18,10 @@ import pri.swg.img.Imager;
  *
  */
 public class SuiteB extends JFrame {
-	Imager painter;
+	private Imager painter;
 	private static final long serialVersionUID = 1L;
 
-	SuiteB() {
+	private SuiteB() {
 		setBounds(100, 50, 1000, 700);
 		setLayout(null);
 		this.getContentPane().setBackground(Color.lightGray);
