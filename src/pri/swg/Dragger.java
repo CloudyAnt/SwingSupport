@@ -58,7 +58,6 @@ public class Dragger {
                 mPresent = e.getLocationOnScreen();
                 int x = mPresent.x - mStart.x + cStart.x, y = mPresent.y - mStart.y + cStart.y;
                 c.setLocation(new Point(x < xa ? xa : Math.min(x, xb), y < ya ? ya : Math.min(y, yb)));
-                c.setLocation(mPresent);
             }
         });
     }
