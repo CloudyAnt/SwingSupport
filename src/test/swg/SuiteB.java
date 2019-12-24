@@ -10,9 +10,10 @@ import pri.swg.Dragger;
 import pri.swg.Fader;
 import pri.swg.img.Bounds;
 import pri.swg.img.Imager;
+import test.resource.Resource;
 
 /**
- * SuiteB主要测试Imager、Painter
+ * SuiteB 主要测试 Imager、Painter
  * 
  * @author 柴晓
  *
@@ -25,7 +26,9 @@ public class SuiteB extends JFrame {
 		setBounds(100, 50, 1000, 700);
 		setLayout(null);
 		this.getContentPane().setBackground(Color.lightGray);
-		URL url = this.getClass().getResource("Meitu_main.png");
+
+		Resource resource = Resource.instance();
+		URL url = resource.urlOf("Meitu_main.png");
 		// 使图像在中心旋转需要提前知道面板边界
 		Bounds bounds = new Bounds(0, 0, 1000, 700);
 		// Imager i=new Imager(this,url,bounds);

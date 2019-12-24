@@ -58,10 +58,8 @@
             <resource>
                 <directory>src</directory>
                 <includes>
-                    <include>test/t_swg/*.gif</include>
-                    <include>test/t_swg/*.png</include>
-                    <include>test/t_swg/*.jpg</include>
-                    <include>test/t_file/*.lrc</include>
+                    <include>test/resource/img/*</include>
+                    <include>test/file/*.lrc</include>
                 </includes>
             </resource>
         </resources>

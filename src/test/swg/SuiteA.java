@@ -12,7 +12,7 @@ import pri.swg.Fader;
 import pri.swg.Slider;
 
 /**
- * SuiteA测试COperator、FadeFrame、Slider、Dragger
+ * SuiteA 测试 COperator、FadeFrame、Slider、Dragger
  * 
  * @author 柴晓
  *

@@ -9,14 +9,17 @@ import pri.swg.Dragger;
 //import pri.swg.img.Bounds;
 //import pri.swg.img.Imager;
 import pri.swg.img.ImgPanel;
+import test.resource.Resource;
 
 @SuppressWarnings("serial")
-public class Static_Image_Test extends JFrame {
-	public Static_Image_Test() {
+public class StaticImageTest extends JFrame {
+	public StaticImageTest() {
 		setBounds(200, 200, 500, 500);
 		setLayout(new GridLayout(1, 1));
 
-		ImgPanel i = new ImgPanel(this.getClass().getResource("Meitu_main.png"), 0, 0, 500, 500);
+		Resource resource = Resource.instance();
+
+		ImgPanel i = new ImgPanel(resource.urlOf("Meitu_main.png"), 0, 0, 500, 500);
 		// Imager i=new Imager(this,this.getClass().getResource("Meitu_main.png"),new
 		// Bounds(0,0,500,500));
 		// i.setImgData(500, 500, 0, 0, 0, 0);
@@ -34,6 +37,6 @@ public class Static_Image_Test extends JFrame {
 	}
 
 	public static void main(String args[]) {
-		new Static_Image_Test();
+		new StaticImageTest();
 	}
 }

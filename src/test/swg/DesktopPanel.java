@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import pri.swg.Dragger;
+import test.resource.Resource;
 
 @SuppressWarnings("serial")
 public class DesktopPanel extends JFrame {
@@ -17,10 +18,11 @@ public class DesktopPanel extends JFrame {
 		setBounds(200, 200, 500, 500);
 		setLayout(new GridLayout(1, 1));
 
+		Resource resource = Resource.instance();
 		// 桌面面板
 		JDesktopPane jd = new JDesktopPane();
-		JLabel back = new JLabel(new ImageIcon(this.getClass().getResource("mention.png"))),
-				back2 = new JLabel(new ImageIcon(this.getClass().getResource("mention.png")));// 获取背景图 并放在JLabel中
+		JLabel back = new JLabel(resource.getIcon("mention.png")),
+				back2 = new JLabel(resource.getIcon("mention.png"));// 获取背景图 并放在JLabel中
 		back2.setBounds(0, 0, 200, 200); // 设置背景图大小
 		back2.setBounds(0, 0, 400, 200); // 设置背景图大小
 
