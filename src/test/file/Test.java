@@ -1,4 +1,4 @@
-package test.t_file;
+package test.file;
 
 import java.io.File;
 

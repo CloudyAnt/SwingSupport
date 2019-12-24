@@ -1,11 +1,9 @@
-package test.t_swg;
+package test.swg;
 
 import pri.swg.FadeFrame;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class FadeFrameTest extends FadeFrame {

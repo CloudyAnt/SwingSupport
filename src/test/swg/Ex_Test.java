@@ -1,4 +1,4 @@
-package test.t_swg;
+package test.swg;
 
 import javax.swing.JFrame;
 
