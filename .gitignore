@@ -16,3 +16,6 @@ gen
 .settings
 build
 classes
+
+#Others
+.DS_Store
