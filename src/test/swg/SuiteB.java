@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 import pri.swg.Dragger;
 import pri.swg.Fader;
-import pri.swg.img.Bounds;
+import pri.swg.img.ImageBound;
 import pri.swg.img.Imager;
 import test.resource.Resource;
 
@@ -30,11 +30,11 @@ public class SuiteB extends JFrame {
 		Resource resource = Resource.instance();
 		URL url = resource.urlOf("Meitu_main.png");
 		// 使图像在中心旋转需要提前知道面板边界
-		Bounds bounds = new Bounds(0, 0, 1000, 700);
+		ImageBound imageBound = new ImageBound(0, 0, 1000, 700);
 		// Imager i=new Imager(this,url,bounds);
 		// i.setDate(700, 700, 0, 0, 0, 0);
 		// add(i);
-		painter = new Imager(this, url, 360, 3000, bounds);
+		painter = new Imager(this, url, 360, 3000, imageBound);
 		painter.setImgData(600, 600, 300, 310, 0, 10);
 		add(painter);
 		painter.start();

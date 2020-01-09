@@ -3,16 +3,14 @@ package pri.swg.img;
 /**
  * 图像边界信息
  * <hr>
- * 已用到的Support类：
- * <li>Imager</li>
  * 
  * @author 柴晓
  *
  */
-public class Bounds {
+public class ImageBound {
 	private int x, y, Width, Height;
 
-	public Bounds(int x, int y, int Width, int Height) {
+	public ImageBound(int x, int y, int Width, int Height) {
 		this.x = x;
 		this.y = y;
 		this.Width = Width;

@@ -23,8 +23,6 @@ import javax.swing.JPanel;
 public class Imager extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private final int TURN = 0, SILENT = -1;
-	// action 命令 time 用时 intervals 刷新间隔
-	// iW iH 图片长宽 cX cY 中心点（旋转）pX pY 位置（左上角）
 	private int action, time, intervals = 10, iW, iH, cX, cY, pX, pY, line = 0;
 	private float radians, added = 0;
 	private boolean notStop = false, sized = false, on = false, going = true;
@@ -32,10 +30,6 @@ public class Imager extends JPanel {
 	private Imager thisone;
 	private Component owner;
 
-	// public void repaint(){
-	// super.repaint();
-	// System.out.println("REPAINT");
-	// }
 	public void paint(Graphics g) {// 因为要改写paint，所以要把此当成一个组件添加
 		super.paint(g);
 		Graphics2D g2 = (Graphics2D) g;
@@ -47,16 +41,7 @@ public class Imager extends JPanel {
 			break;
 		}
 		g2.drawImage(img, pX, pY, iW, iH, thisone);
-		// owner.repaint();
-		// System.out.println("HERE");
-		// if(action==CIRCLE){
-		// Graphics2D g2=(Graphics2D)g;
-		//// g2.scale(1,.5);
-		// g2.drawImage(img,pX,pY,iW,iH,thisone);
-		// owner.repaint(); //消除之前的图像痕迹
-		// }else if(action==SILENT){
-		//
-		// }
+
 	}
 
 	// public static void setImage(JPanel owner,URL url,Bounds bounds){
@@ -67,18 +52,18 @@ public class Imager extends JPanel {
 		this.setOpaque(false);
 	}
 
-	public Imager(Component owner, URL url, Bounds bounds) {
+	public Imager(Component owner, URL url, ImageBound imageBound) {
 		this();
-		autoSet(owner, url, bounds);
+		autoSet(owner, url, imageBound);
 		dealSilent();
 	}
 
 	/**
 	 * 自动定位设置
 	 */
-	private void autoSet(Component owner, URL url, Bounds bounds) {
+	private void autoSet(Component owner, URL url, ImageBound imageBound) {
 		int[] ii = getSize(url);
-		setBounds(bounds.getX(), bounds.getY(), bounds.getWidth(), bounds.getHeight());
+		setBounds(imageBound.getX(), imageBound.getY(), imageBound.getWidth(), imageBound.getHeight());
 		set(owner, url, new Point((this.getWidth() - ii[0]) / 2, (this.getHeight() - ii[1]) / 2));
 	}
 
@@ -89,11 +74,11 @@ public class Imager extends JPanel {
 	 * @param url    图像路径
 	 * @param angdeg 旋转角度
 	 * @param time   旋转用时
-	 * @param bounds 边界
+	 * @param imageBound 边界
 	 */
-	public Imager(Component owner, URL url, int angdeg, int time, Bounds bounds) {
+	public Imager(Component owner, URL url, int angdeg, int time, ImageBound imageBound) {
 		this();
-		autoSet(owner, url, bounds);
+		autoSet(owner, url, imageBound);
 		dealSpin(new Point(this.getWidth() / 2, this.getHeight() / 2), angdeg, time);
 	}
 
