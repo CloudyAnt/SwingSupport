@@ -1,5 +1,6 @@
 package test.swg;
 
+import pri.swg.Dragger;
 import pri.swg.Liner;
 
 import javax.swing.*;
@@ -11,10 +12,11 @@ public class LinerTest extends JFrame {
         setBounds(200, 200, 500, 500);
         setLayout(null);
 
-        Liner liner = new Liner(500, 10, Liner.Horizontal);
-        liner.setLocation(0, 245);
+        Liner liner = new Liner(500, 500, Liner.Horizontal);
+        liner.setLocation(0, 0);
         liner.draw(Color.red, Color.green, Color.blue);
 
+        Dragger.drag(this, liner);
         add(liner);
         setVisible(true);
     }
