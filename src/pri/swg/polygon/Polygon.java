@@ -25,7 +25,7 @@ public class Polygon {
         this.skip = skip;
         float skipLimitation = ((float)corners - 2) / 2;
         if (skip < 0 || skip >= skipLimitation) {
-            System.err.println("Skip " + skip + "is illegal. The formula to calculate upper limitation of skip is: (corners - 2) / 2. " +
+            System.err.println("Skip " + skip + " is illegal. The formula to calculate upper limitation of skip is: (corners - 2) / 2. " +
                     "The lower limitation of skip is 0");
             return;
         }

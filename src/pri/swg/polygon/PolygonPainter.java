@@ -35,6 +35,10 @@ public class PolygonPainter extends JPanel {
     public PolygonPainter(int radius) {
         this.radius = this.centralX = this.centralY = radius;
         polygons = new ArrayList<>();
+
+        int sideLength  = radius * 2;
+        setSize(sideLength, sideLength);
+        setPreferredSize(new Dimension(sideLength, sideLength));
     }
 
     public void addPolygon(Polygon... polygons) {
