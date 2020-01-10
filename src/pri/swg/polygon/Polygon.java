@@ -18,20 +18,19 @@ public class Polygon {
     public Polygon(int corners, int skip, int strokeWidth, Color color) {
         this.corners = corners;
         if (corners < 3) {
-            System.err.println("Corners " + corners + " is smaller than 3");;
+            outputErr("Corners mustn't smaller than 3. Received: " + corners);
             return;
         }
 
         this.skip = skip;
         float skipLimitation = ((float)corners - 2) / 2;
         if (skip < 0 || skip >= skipLimitation) {
-            System.err.println("Skip " + skip + " is illegal. The formula to calculate upper limitation of skip is: (corners - 2) / 2. " +
-                    "The lower limitation of skip is 0");
+            outputErr("Skip " + skip + " for corners " + corners + " is illegal. The limitation of skip is [0, (corners - 2) / 2). ");
             return;
         }
 
         if (strokeWidth < 1) {
-            System.err.println("Stroke width must bigger than 0");
+            outputErr("Stroke width must bigger than 0. Received: " + strokeWidth);
             return;
         }
 
@@ -42,6 +41,10 @@ public class Polygon {
         ys = new int[corners];
 
         drawable = true;
+    }
+
+    private void outputErr(String err) {
+        System.err.println(this.getClass().getName() + ": " + err);
     }
 
     public Color getColor() {
