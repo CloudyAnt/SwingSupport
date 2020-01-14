@@ -20,7 +20,6 @@ public class PolygonerTest extends JFrame {
     }
 
     public static void main(String[] args) {
-
         PolygonPainter polygonPainter = new PolygonPainter(250);
         new PolygonerTest(500, polygonPainter);
         Polygon heptagram = new Polygon(7, 1, 1, Color.blue);

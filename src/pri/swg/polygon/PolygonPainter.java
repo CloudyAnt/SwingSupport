@@ -54,8 +54,8 @@ public class PolygonPainter extends JPanel {
 
         double angle = Math.PI * 2 / corners;
         for (int i = 0; i < corners; i++) {
-            xs[i] = centralX + (int)(Math.cos(angle * i - (Math.PI / 2)) * radius);
-            ys[i] = centralY + (int)(Math.sin(angle * i - (Math.PI / 2)) * radius);
+            xs[i] = centralX + (int)(Math.sin(angle * i) * radius);
+            ys[i] = centralY - (int)(Math.cos(angle * i) * radius);
         }
 
         polygon.setXs(xs);
