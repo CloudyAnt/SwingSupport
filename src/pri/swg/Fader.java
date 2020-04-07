@@ -1,5 +1,7 @@
 package pri.swg;
 
+import pri.util.MExecutor;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
@@ -33,7 +35,7 @@ public class Fader {
 	private Component c;
 	private int place, time, intervals = 10, length, lines = 0, index = 0, fullTimes;
 	private Color[] colors;
-	private Integer[] present = new Integer[4], next = new Integer[4];
+	private Integer[] present, next;
 	private float[] pre_float = new float[4];
 	private boolean on = true, Going = true, needBack = false;
 
@@ -46,9 +48,7 @@ public class Fader {
 		this.colors = new Color[colors.length + 1];
 		this.colors[0] = getSource(place);
 		fullTimes = time / intervals; // 运行大致次数，据此判断每次大致加值
-		for (int i = 1; i < this.colors.length; i++) {
-			this.colors[i] = colors[i - 1];
-		}
+		if (this.colors.length - 1 >= 0) System.arraycopy(colors, 0, this.colors, 1, this.colors.length - 1);
 		present = getRGBA(this.colors[0]);
 		next = getRGBA(this.colors[1]);
 		if (activity == NULL)
@@ -175,7 +175,7 @@ public class Fader {
 		synchronized ("N") {
 			next = nex;
 		}
-		float add[] = new float[4];
+		float[] add = new float[4];
 		for (int i = 0; i < add.length; i++) {
 			add[i] = (float) (nex[i] - pre[i]) / fullTimes;// 每种颜色的每次大致加值
 			pre_float[i] = pre[i]; // 初始化
@@ -191,11 +191,9 @@ public class Fader {
 	 */
 	private void doSlide(final float add[], int line) {
 		on = true;
-		new Thread(() -> {
+		MExecutor.execute(() -> {
 			// 是否继续增加。每个颜色属性到达目标后对应的解锁。
-			// Boolean locked[]={new Boolean(true),new Boolean(true),new Boolean(true),new
-			// Boolean(true)};
-			boolean locked[] = { true, true, true, true };
+			boolean[] locked = { true, true, true, true };
 			while (on && line == lines) {
 				try {
 					Thread.sleep(intervals);
@@ -234,8 +232,7 @@ public class Fader {
 					needBack = false;
 				}
 			}
-
-		}).start();
+		});
 	}
 
 	/**

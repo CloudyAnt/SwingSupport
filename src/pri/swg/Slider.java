@@ -1,5 +1,7 @@
 package pri.swg;
 
+import pri.util.MExecutor;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Point;
@@ -343,7 +345,7 @@ public class Slider {
 	 * @param finish 终点
 	 */
 	private void doSlide(final Point start, final Point finish) {
-		new Thread(() -> {
+		MExecutor.execute(() -> {
 			int time = times;
 			int xDir = start.x <= finish.x ? 1 : -1;
 			int yDir = start.y <= finish.y ? 1 : -1;
@@ -390,7 +392,7 @@ public class Slider {
 				goBack();
 				needBack = false;
 			}
-		}).start();
+		});
 	};
 
 	// 末端减速

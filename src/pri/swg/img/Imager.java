@@ -1,5 +1,7 @@
 package pri.swg.img;
 
+import pri.util.MExecutor;
+
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -189,7 +191,7 @@ public class Imager extends JPanel {
 	private void imageStart() {
 		on = true;
 		int preLine = line;
-		new Thread(() -> {
+		MExecutor.execute(() -> {
 			float times = time / intervals;
 			float add;
 			if (going)
@@ -210,7 +212,7 @@ public class Imager extends JPanel {
 				repaint();
 			}
 			on = false;
-		}).start();
+		});
 	}
 
 	// 判断是否结束

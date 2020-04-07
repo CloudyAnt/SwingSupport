@@ -1,5 +1,7 @@
 package pri.swg;
 
+import pri.util.MExecutor;
+
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
@@ -71,7 +73,7 @@ public class FadeFrame extends JFrame {
 	}
 
 	private void fade(boolean isIn) {
-		new Thread(() -> {
+		MExecutor.execute(() -> {
 			times++;
 			while (times < turns)
 				;
@@ -98,7 +100,7 @@ public class FadeFrame extends JFrame {
 			turns++;
 			if (time == times && !isIn && close_after_out)// 退出关闭
 				thisone.setVisible(false);
-		}).start();
+		});
 	}
 
 	/**
