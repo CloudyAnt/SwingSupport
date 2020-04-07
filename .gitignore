@@ -15,6 +15,7 @@ gen
 .settings
 build
 classes
+*iml
 
 #Others
 .DS_Store
