@@ -1,4 +1,4 @@
-package test.swg;
+package pri.swg;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -6,11 +6,9 @@ import java.net.URL;
 
 import javax.swing.JFrame;
 
-import pri.swg.Dragger;
-import pri.swg.Fader;
+import pri.Resource;
 import pri.swg.img.ImageBound;
 import pri.swg.img.Imager;
-import test.resource.Resource;
 
 /**
  * SuiteB 主要测试 Imager、Painter

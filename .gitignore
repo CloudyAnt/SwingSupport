@@ -7,7 +7,6 @@ out
 gen
 .vscode
 .idea/
-*.iml
 
 # Eclipse project files
 .classpath
@@ -19,4 +18,4 @@ classes
 
 #Others
 .DS_Store
-src/other_test
+*other_test

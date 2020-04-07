@@ -1,6 +1,4 @@
-package test.swg;
-
-import pri.swg.FadeFrame;
+package pri.swg;
 
 import javax.swing.*;
 import java.awt.*;

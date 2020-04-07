@@ -1,6 +1,7 @@
-package test.resource;
+package pri;
 
 import javax.swing.*;
+import java.io.File;
 import java.net.URL;
 
 public class Resource {
@@ -15,7 +16,7 @@ public class Resource {
     }
 
     public URL urlOf(String resourceName) {
-        return Resource.class.getResource("img/" + resourceName);
+        return Resource.class.getResource(resourceName);
     }
 
     public ImageIcon getIcon(String iconName) {

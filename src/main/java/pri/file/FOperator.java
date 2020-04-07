@@ -46,7 +46,7 @@ public class FOperator {
 	 * @param source URL
 	 * @return 文件
 	 */
-	public static File getResoureFile(Class<?> cla, String source) {
+	public static File getResourceFile(Class<?> cla, String source) {
 		try {
 			return new File(URLDecoder.decode(cla.getResource(source).getPath(), "UTF-8"));
 			// 中文字符会被UFT-8编码，需解码

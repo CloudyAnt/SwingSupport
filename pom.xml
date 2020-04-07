@@ -49,10 +49,10 @@
 
         <resources>
             <resource>
-                <directory>src</directory>
+                <targetPath>${project.basedir}/build/test-classes</targetPath>
+                <directory>src/test/resource</directory>
                 <includes>
-                    <include>test/resource/img/*</include>
-                    <include>test/file/*.lrc</include>
+                    <include>pri/*</include>
                 </includes>
             </resource>
         </resources>

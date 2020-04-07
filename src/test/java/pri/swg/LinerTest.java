@@ -1,7 +1,4 @@
-package test.swg;
-
-import pri.swg.Dragger;
-import pri.swg.Liner;
+package pri.swg;
 
 import javax.swing.*;
 import java.awt.*;

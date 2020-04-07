@@ -1,6 +1,4 @@
-package test.file;
-
-import pri.file.FOperator;
+package pri.file;
 
 import java.io.File;
 

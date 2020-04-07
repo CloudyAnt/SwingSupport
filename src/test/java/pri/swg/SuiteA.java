@@ -1,4 +1,4 @@
-package test.swg;
+package pri.swg;
 
 import java.awt.Color;
 import java.awt.GridLayout;

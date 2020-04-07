@@ -1,6 +1,5 @@
-package test.swg;
+package pri.swg;
 
-import pri.swg.Dragger;
 import pri.swg.polygon.Polygon;
 import pri.swg.polygon.PolygonPainter;
 
