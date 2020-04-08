@@ -43,7 +43,7 @@
     <build>
         <directory>${project.basedir}/build</directory>
         <defaultGoal>compile</defaultGoal>
-        <sourceDirectory>src</sourceDirectory>
+        <sourceDirectory>src/main/java</sourceDirectory>
         <outputDirectory>classes</outputDirectory>
         <finalName>${project.artifactId}-${project.version}</finalName>
 
