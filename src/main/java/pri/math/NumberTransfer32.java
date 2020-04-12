@@ -8,7 +8,7 @@ import java.math.BigInteger;
  * @author 柴晓
  *
  */
-public class Hex {
+public class NumberTransfer32 {
 	public static final int plus = 1, minus = 2, multiply = 3, divide = 4;
 	private static BigInteger zero = new BigInteger("0");
 
@@ -16,19 +16,19 @@ public class Hex {
 	 * 给定的进制的字符串转换为十进制
 	 * 
 	 * @param s   指定进制的字符串
-	 * @param hex 指定的进制
+	 * @param base 指定的进制
 	 * @return 十进制大数字
 	 */
-	public static BigInteger getIntInDecimal(String s, int hex) {
+	public static BigInteger getIntInDecimal(String s, int base) {
 		BigInteger bi = new BigInteger("0"), x = null;
 		if (s.charAt(0) == '-') {
 			x = new BigInteger("-1");
 			s = s.substring(1);
 		}
-		char sc[] = s.toCharArray();
-		int len = sc.length;
+		char[] chars = s.toCharArray();
+		int len = chars.length;
 		for (int i = 0; i < len; i++) {
-			bi = bi.add(getX(toTen(sc[i]), hex, len - i));
+			bi = bi.add(getX(toTen(chars[i]), base, len - i));
 		}
 		if (x == null)
 			return bi;
@@ -39,14 +39,14 @@ public class Hex {
 	 * 将十进制的大数字转换为指定进制
 	 * 
 	 * @param bi  十进制大数字
-	 * @param hex 指定的进制
+	 * @param base 指定的进制
 	 * @return 转换后的字符串
 	 */
-	public static String getIntInPointHex(BigInteger bi, Integer hex) {
+	public static String getIntInPointHex(BigInteger bi, Integer base) {
 		String show = "", x = "";
 		if (bi.compareTo(zero) < 0)
 			x = "-1";
-		BigInteger hex_bi = new BigInteger(hex.toString());
+		BigInteger hex_bi = new BigInteger(base.toString());
 		if (!bi.equals(zero))
 			while (!bi.equals(zero)) {
 				BigInteger mod = bi.mod(hex_bi); // 取余数
@@ -64,22 +64,14 @@ public class Hex {
 	 * @param c 字母
 	 */
 	public static int toTen(char c) {
-		int i = (int) c;
-		if (i >= 48 && i <= 57) {
-			for (int t = 0; t <= 9; t++) {
-				if ((i - 48) == t)
-					return t;
-			}
-		} else if (i >= 97 && i <= 122) {
-			for (int t = 10; t <= 36; t++) {
-				if ((i - 87) == t)
-					return t;
-			}
-		} else if (i >= 65 && i <= 90) {
-			for (int t = 10; t <= 36; t++) {
-				if ((i - 55) == t)
-					return t;
-			}
+		if (c >= '0' && c <= '9') {
+			return c - '0';
+		}
+		if (c >= 'a' && (int) c <= 'z') {
+			return c - 'a' + 10;
+		}
+		if (c >= 'A' && c <= 'Z') {
+			return c - 'A' + 10;
 		}
 		return -1;
 	}
@@ -108,15 +100,11 @@ public class Hex {
 	 */
 	public static char toChar_Z(int i) {
 		if (i < 10) {
-			for (int ii = 48; ii < 58; ii++) {
-				if ((i + 48) == ii)
-					return (char) ii;
-			}
-		} else
-			for (int ii = 65; ii < 91; ii++) {
-				if ((i + 55) == ii)
-					return (char) ii;
-			}
+			return (char) ('0' + i);
+		}
+		if (i < 36) {
+			return (char) ('A' + i - 10);
+		}
 		return ' ';
 	}
 
@@ -135,19 +123,19 @@ public class Hex {
 	/**
 	 * 计算
 	 * 
-	 * @param sa      A字符串
-	 * @param ha      A进制
-	 * @param sb      B字符串
-	 * @param hb      B进制
-	 * @param hr      返回进制
-	 * @param operate 操作
+	 * @param a      A字符串
+	 * @param aBase      A进制
+	 * @param b      B字符串
+	 * @param bBase      B进制
+	 * @param returnBase      返回进制
+	 * @param operation 操作
 	 * @return 结果字符串
 	 */
-	public static String calculate(String sa, int ha, String sb, int hb, int operate, int hr) {
-		BigInteger abi = getIntInDecimal(sa, ha), bbi = getIntInDecimal(sb, hb);
+	public static String calculate(String a, int aBase, String b, int bBase, int operation, int returnBase) {
+		BigInteger abi = getIntInDecimal(a, aBase), bbi = getIntInDecimal(b, bBase);
 		System.out.println(abi + " " + bbi);
 		String result = "0";
-		switch (operate) {
+		switch (operation) {
 		case plus:
 			result = (abi.add(bbi)).toString();
 			break;
@@ -161,13 +149,13 @@ public class Hex {
 			result = (abi.divide(bbi)).toString();
 			break;
 		}
-		if (hr != 0)
-			result = transformation(result, 10, hr);
+		if (returnBase != 0)
+			result = transformation(result, 10, returnBase);
 		return result;
 	}
 
 	public static void main(String args[]) {
-		System.out.println(Hex.transformation("CDE", 24, 10));
-		System.out.println((Hex.calculate("-ABC", 24, "ABCD", 24, plus, 36)));
+		System.out.println(NumberTransfer32.transformation("CDE", 24, 10));
+		System.out.println((NumberTransfer32.calculate("-ABC", 24, "ABCD", 24, plus, 36)));
 	}
 }
