@@ -6,10 +6,8 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import pri.swg.Dragger;
-import pri.swg.FadeFrame;
-import pri.swg.Fader;
-import pri.swg.Slider;
+import pri.swg.frame.FadeFrame;
+import pri.util.MExecutor;
 
 /**
  * SuiteA 测试 COperator、Slider、Dragger
@@ -34,7 +32,8 @@ public class SuiteA extends FadeFrame {
 		Dragger.drag(this, panel);
 	}
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		new SuiteA();
+		MExecutor.shutdown();
 	}
 }

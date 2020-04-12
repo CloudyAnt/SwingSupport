@@ -1,4 +1,4 @@
-package pri.swg;
+package pri.swg.frame;
 
 import pri.util.MExecutor;
 
@@ -22,13 +22,13 @@ public class FadeFrame extends JFrame {
 	private int fadeTime = 200, intervals = 10, times = 0, turns = 1;// times是第几次运行，turns是轮到第几次运行
 	private float from = 0.0f, to = 1.0f, add = 0.05f;
 	private boolean goOn = true, in_with_show = true, close_after_out = true;
-	private FadeFrame thisone;
+	private FadeFrame self;
 
 	/**
 	 * 淡入淡出窗体，默认将在打开时启动淡入
 	 */
 	public FadeFrame() {
-		thisone = this;
+		self = this;
 		setUndecorated(true);
 		setOpacity(from);
 		addComponentListener(new ComponentAdapter() {
@@ -80,7 +80,7 @@ public class FadeFrame extends JFrame {
 			float a = isIn ? add : -add;
 			int time = times;
 			goOn = true;
-			float opacity = thisone.getOpacity();
+			float opacity = self.getOpacity();
 			while (goOn && time == times) {
 				try {
 					Thread.sleep(intervals);
@@ -99,7 +99,7 @@ public class FadeFrame extends JFrame {
 			}
 			turns++;
 			if (time == times && !isIn && close_after_out)// 退出关闭
-				thisone.setVisible(false);
+				self.setVisible(false);
 		});
 	}
 

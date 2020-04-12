@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import pri.Resource;
 import pri.swg.img.ImageBound;
 import pri.swg.img.Imager;
+import pri.util.MExecutor;
 
 /**
  * SuiteB 主要测试 Imager、Painter
@@ -48,7 +49,8 @@ public class SuiteB extends JFrame {
 		super.paint(g);
 	}
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		new SuiteB();
+		MExecutor.shutdown();
 	}
 }

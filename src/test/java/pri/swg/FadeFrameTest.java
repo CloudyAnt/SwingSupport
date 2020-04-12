@@ -1,5 +1,7 @@
 package pri.swg;
 
+import pri.swg.frame.FadeFrame;
+
 import javax.swing.*;
 import java.awt.*;
 
